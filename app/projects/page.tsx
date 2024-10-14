@@ -46,6 +46,20 @@ const projects = [
     githubUrl: "None",
   },
   {
+    id: "23",
+    title: "Padel Club",
+    technologies: [
+      "NextJS",
+      "React",
+      "tailwindCSS",
+      "TypeScript",
+      "responsive",
+    ],
+    image: "/images/paddel.png",
+    liveUrl: "https://padel-club-landing-page.vercel.app/",
+    githubUrl: "https://github.com/mahmoudbahaa755/padel-club-landing-page",
+  },
+  {
     id: 12,
     title: "Aroovia",
     technologies: ["Angular", "TypeScript", "html", "responsive"],
