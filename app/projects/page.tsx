@@ -1,5 +1,7 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -7,14 +9,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,24 +22,16 @@ const projects = [
   {
     id: 6,
     title: "To Do List",
-    technologies: ["html", "css", "react", "firebase", "responsive"],
+    technologies: ["html", "css", "React", "firebase", "responsive"],
     image: "/images/toDoList.png",
     liveUrl: "https://to-do-list-react-nu-coral.vercel.app/",
     githubUrl: "https://github.com/mahmoudbahaa755/to-do-list--React-",
   },
 
   {
-    id: 2,
-    title: "Portfolio",
-    technologies: ["html", "css", "responsive", "next", "react"],
-    image: "/images/portofilo.png",
-    liveUrl: "https://github.com/mahmoudbahaa755/portifolio",
-    githubUrl: "https://portifolio-ten-tawny.vercel.app/",
-  },
-  {
     id: 8,
     title: "Restaurant Menu",
-    technologies: ["html", "css", "react", "firebase", "responsive"],
+    technologies: ["html", "css", "React", "firebase", "responsive"],
     image: "/images/Restaurant.png",
     liveUrl:
       "https://restaurant-react-lip8hvqbn-mahmoud-bahaas-projects.vercel.app/",
@@ -58,7 +50,7 @@ const projects = [
   {
     id: 9,
     title: "Form Page",
-    technologies: ["html", "css", "react", "mui", "responsive"],
+    technologies: ["html", "css", "React", "mui", "responsive"],
     image: "/images/formPage.png",
     liveUrl: "https://form-three-snowy.vercel.app/",
     githubUrl: "https://github.com/mahmoudbahaa755/Form",
@@ -66,7 +58,7 @@ const projects = [
   {
     id: 4,
     title: "Shopping List",
-    technologies: ["html", "css", "react", "responsive"],
+    technologies: ["html", "css", "React", "responsive"],
     image: "/images/shopinglist.png",
     liveUrl:
       "https://react-shopping-list-9kn0j19qk-mahmoud-bahaas-projects.vercel.app/",
@@ -87,6 +79,31 @@ const projects = [
     image: "/images/minx.png",
     liveUrl: "https://template-3-eight.vercel.app/",
     githubUrl: "https://github.com/mahmoudbahaa755/Minx-Template",
+  },
+  {
+    id: 6,
+    title: "To Do List",
+    technologies: ["html", "css", "React", "firebase", "responsive"],
+    image: "/images/toDoList.png",
+    liveUrl: "https://to-do-list-react-nu-coral.vercel.app/",
+    githubUrl: "https://github.com/mahmoudbahaa755/to-do-list--React-",
+  },
+
+  {
+    id: 2,
+    title: "Portfolio",
+    technologies: ["html", "css", "responsive", "NextJS", "React"],
+    image: "/images/portofilo.png",
+    liveUrl: "https://github.com/mahmoudbahaa755/portifolio",
+    githubUrl: "https://portifolio-ten-tawny.vercel.app/",
+  },
+  {
+    id: 11,
+    title: "Rayed Site",
+    technologies: ["NextJS", "tailwind", "ts", "html", "responsive"],
+    image: "/images/rayed.png",
+    liveUrl: "https://rayed.net/en",
+    githubUrl: "None",
   },
 
   {
@@ -186,16 +203,14 @@ export default function Projects() {
                 src={project.image || ""}
                 alt={project.title}
                 width={800}
-                height={600}
-                className="w-full h-48 object-cover"
+                height={800}
+                className="w-full h-[300px] "
               />
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <CardDescription className="mb-4">
-                  {project.description}
-                </CardDescription>
+                <CardDescription className="mb-4"></CardDescription>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
                     <Badge key={techIndex} variant="secondary">

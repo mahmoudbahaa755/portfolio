@@ -14,8 +14,8 @@ export default function StickManWithCard() {
         <div className={style["mouth"]}></div>
         <div className={style["la"]}></div>
         <div className={style["ra"]}></div>
-        <div className={style.card}>
-          <Link href="https://drive.google.com/file/d/1vYQjCJugZZG_ku4YxShRwVfDTJ-SW1D-/view?usp=drivesdk">
+        <div className={`element ${style.card}`}>
+          <Link href="https://drive.google.com/file/d/1q1Y0GSKZt4sGLGqPOYnGp8TWHWqPkMxz/view?usp=sharing">
             my CV
           </Link>
         </div>

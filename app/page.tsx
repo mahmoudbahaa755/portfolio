@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import StickManWithCard from "@/components/StickManWithCard/StickManWithCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -117,7 +118,7 @@ export default function Home() {
           className="text-2xl md:text-3xl mb-4"
           variants={itemVariants}
         >
-          Frontend Developer & UI/UX Enthusiast
+          Software Engineer
         </motion.h2>
         <motion.p className="text-xl mb-8 max-w-2xl" variants={itemVariants}>
           Crafting beautiful and functional web experiences with a passion for
@@ -140,16 +141,10 @@ export default function Home() {
       </div>
       <motion.div
         ref={imageRef}
-        className="md:w-1/2 flex justify-center"
+        className="md:w-1/2 flex bg-gray-500 justify-center"
         variants={itemVariants}
       >
-        <Image
-          src="https://source.unsplash.com/random/600x600?developer"
-          alt="Mahmoud Bahaa"
-          width={400}
-          height={400}
-          className="rounded-full shadow-2xl"
-        />
+        <StickManWithCard />
       </motion.div>
     </motion.div>
   );

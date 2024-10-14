@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -100,7 +101,7 @@ const getIcon = (name: any) => {
     AWS: <FaAws />,
     Vercel: <SiVercel />,
   };
-  return icons[name] || null;
+  return icons[name as keyof typeof icons] || null;
 };
 
 export default function Technologies() {
