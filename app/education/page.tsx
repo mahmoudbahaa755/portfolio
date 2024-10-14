@@ -1,8 +1,13 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { motion } from "framer-motion"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const educations = [
   {
@@ -10,23 +15,23 @@ const educations = [
     institution: "Tech University",
     year: "2016",
     description: "Specialized in Web Technologies and User Interface Design",
-    achievements: ["Thesis on Progressive Web Apps", "Dean's List"]
+    achievements: ["Thesis on Progressive Web Apps", "Dean's List"],
   },
   {
     degree: "Bachelor of Science in Software Engineering",
-    institution: "State College of Technology",
-    year: "2014",
+    institution: "Computer Science",
+    year: "2023",
     description: "Focus on Software Development and Web Programming",
-    achievements: ["Graduated with Honors", "Web Development Club President"]
+    achievements: ["Graduated with Honors"],
   },
   {
-    degree: "Frontend Development Bootcamp",
+    degree: "DEBI Scholarship Program",
     institution: "CodeCamp Academy",
-    year: "2015",
+    year: "2024",
     description: "Intensive 12-week program on modern frontend technologies",
-    achievements: ["Best Final Project Award"]
-  }
-]
+    achievements: ["Best Final Project Award"],
+  },
+];
 
 export default function Education() {
   return (
@@ -42,7 +47,9 @@ export default function Education() {
           <Card>
             <CardHeader>
               <CardTitle>{edu.degree}</CardTitle>
-              <CardDescription>{edu.institution} | {edu.year}</CardDescription>
+              <CardDescription>
+                {edu.institution} | {edu.year}
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="mb-4">{edu.description}</p>
@@ -59,5 +66,5 @@ export default function Education() {
         </motion.div>
       ))}
     </div>
-  )
+  );
 }

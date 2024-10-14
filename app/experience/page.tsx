@@ -1,84 +1,109 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { motion } from "framer-motion"
-import { Briefcase, GraduationCap } from 'lucide-react'
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+import { Briefcase, GraduationCap } from "lucide-react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    title: "Senior Frontend Developer",
-    company: "Tech Innovators Inc.",
-    period: "2020 - Present",
-    description: "Led the frontend development team in creating responsive and accessible web applications using React and Next.js.",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+    title: "Mid Level Frontend Developer",
+    company: "IJD Creatives .",
+    period: "2024,November - Present",
+    description:
+      "Led the frontend development team in creating responsive and accessible web applications using React and Next.js.",
+    skills: ["GSAP", "Angular", "Management"],
   },
   {
     title: "Frontend Developer",
-    company: "WebSolutions Co.",
-    period: "2018 - 2020",
-    description: "Developed and maintained client websites, focusing on performance optimization and cross-browser compatibility.",
-    skills: ["JavaScript", "Vue.js", "SASS", "Webpack"]
+    company: "FiveM Technologies",
+    period: " 2024, March - 2024,November",
+    description:
+      "Developed and maintained ERP System, focusing on performance optimization and cross-browser compatibility.",
+    skills: [
+      "TypeScript",
+      "NextJS",
+      "TailwindCSS",
+      "AntDesign",
+      "react-hook-form",
+      "Webpack",
+      "TypeScript",
+    ],
   },
   {
     title: "Junior Web Developer",
-    company: "Digital Creations Ltd.",
-    period: "2016 - 2018",
-    description: "Assisted in building responsive websites and implemented UI/UX designs using modern frontend technologies.",
-    skills: ["HTML5", "CSS3", "jQuery", "Bootstrap"]
-  }
-]
+    company: "Dr Code",
+    period: "2023, October - 2024, March",
+    description:
+      "Assisted in building responsive websites,Dashboard, and implemented UI/UX designs using modern frontend technologies.",
+    skills: [
+      "HTML5",
+      "CSS3",
+      "React",
+      "JavaScript",
+      "Bootstrap",
+      "Formik",
+      "MUI",
+    ],
+  },
+];
 
 const educations = [
   {
-    degree: "Master of Science in Computer Science",
+    degree: "DEBI Scholarship in Data Science and Cloud",
     institution: "Tech University",
     year: "2016",
     description: "Specialized in Web Technologies and User Interface Design",
-    achievements: ["Thesis on Progressive Web Apps", "Dean's List"]
+    achievements: ["Thesis on Progressive Web Apps", "Dean's List"],
   },
   {
-    degree: "Bachelor of Science in Software Engineering",
-    institution: "State College of Technology",
-    year: "2014",
+    degree: "Bachelor of Computer Science",
+    institution: "Tanta University",
+    year: "2019 - 2023",
     description: "Focus on Software Development and Web Programming",
-    achievements: ["Graduated with Honors", "Web Development Club President"]
+    achievements: ["Graduated with Honors", "Web Development Club President"],
   },
   {
-    degree: "Frontend Development Bootcamp",
+    degree: "ITI web development (150 hours)",
     institution: "CodeCamp Academy",
-    year: "2015",
-    description: "Intensive 12-week program on modern frontend technologies",
-    achievements: ["Best Final Project Award"]
-  }
-]
+    year: "2020",
+    description: "Intensive 4-week program on modern frontend technologies",
+    achievements: ["Best Final Project Award"],
+  },
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: { 
+  visible: {
     opacity: 1,
-    transition: { 
-      staggerChildren: 0.1
-    }
-  }
-}
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
-  visible: { 
-    y: 0, 
+  visible: {
+    y: 0,
     opacity: 1,
     transition: {
       type: "spring",
-      stiffness: 100
-    }
-  }
-}
+      stiffness: 100,
+    },
+  },
+};
 
 export default function Experience() {
   const experienceRef = useRef([]);
@@ -87,7 +112,8 @@ export default function Experience() {
   useEffect(() => {
     const animateCards = (cards) => {
       cards.forEach((card, index) => {
-        gsap.fromTo(card,
+        gsap.fromTo(
+          card,
           { x: index % 2 === 0 ? -50 : 50, opacity: 0 },
           {
             x: 0,
@@ -98,17 +124,21 @@ export default function Experience() {
               trigger: card,
               start: "top bottom-=100",
               end: "bottom top",
-              toggleActions: "play none none reverse"
-            }
+              toggleActions: "play none none reverse",
+            },
           }
         );
 
         // Interactive hover animation
-        card.addEventListener('mouseenter', () => {
-          gsap.to(card, { scale: 1.03, boxShadow: "0 10px 20px rgba(0,0,0,0.1)", duration: 0.3 });
+        card.addEventListener("mouseenter", () => {
+          gsap.to(card, {
+            scale: 1.03,
+            boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+            duration: 0.3,
+          });
         });
 
-        card.addEventListener('mouseleave', () => {
+        card.addEventListener("mouseleave", () => {
           gsap.to(card, { scale: 1, boxShadow: "none", duration: 0.3 });
         });
       });
@@ -119,7 +149,7 @@ export default function Experience() {
   }, []);
 
   return (
-    <motion.div 
+    <motion.div
       className="space-y-16"
       variants={containerVariants}
       initial="hidden"
@@ -135,18 +165,22 @@ export default function Experience() {
             <motion.div
               key={index}
               variants={itemVariants}
-              ref={el => experienceRef.current[index] = el}
+              ref={(el) => (experienceRef.current[index] = el)}
             >
               <Card className="card-hover">
                 <CardHeader>
                   <CardTitle>{exp.title}</CardTitle>
-                  <CardDescription>{exp.company} | {exp.period}</CardDescription>
+                  <CardDescription>
+                    {exp.company} | {exp.period}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="mb-4">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.skills.map((skill, skillIndex) => (
-                      <Badge key={skillIndex} variant="secondary">{skill}</Badge>
+                      <Badge key={skillIndex} variant="secondary">
+                        {skill}
+                      </Badge>
                     ))}
                   </div>
                 </CardContent>
@@ -166,12 +200,14 @@ export default function Experience() {
             <motion.div
               key={index}
               variants={itemVariants}
-              ref={el => educationRef.current[index] = el}
+              ref={(el) => (educationRef.current[index] = el)}
             >
               <Card className="card-hover">
                 <CardHeader>
                   <CardTitle>{edu.degree}</CardTitle>
-                  <CardDescription>{edu.institution} | {edu.year}</CardDescription>
+                  <CardDescription>
+                    {edu.institution} | {edu.year}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="mb-4">{edu.description}</p>
@@ -190,5 +226,5 @@ export default function Experience() {
         </div>
       </section>
     </motion.div>
-  )
+  );
 }
