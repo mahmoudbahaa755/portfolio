@@ -107,8 +107,8 @@ export default function Experience() {
   const educationRef = useRef([]);
 
   useEffect(() => {
-    const animateCards = (cards) => {
-      cards.forEach((card, index) => {
+    const animateCards = (cards: any) => {
+      cards.forEach((card: any, index: number) => {
         gsap.fromTo(
           card,
           { x: index % 2 === 0 ? -50 : 50, opacity: 0 },
@@ -125,8 +125,6 @@ export default function Experience() {
             },
           }
         );
-
-        // Interactive hover animation
         card.addEventListener("mouseenter", () => {
           gsap.to(card, {
             scale: 1.03,
