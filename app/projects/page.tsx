@@ -14,15 +14,86 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Input } from "@/components/ui/input";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
+    id: 1,
+    title: "Smooth-ERP",
+    technologies: ["NextJS", "TailwindCSS", "TypeScript", "React", "AntDesign"],
+    image: "/images/smooth-erp.png",
+    liveUrl: "https://test.smootherp.com/ar",
+    githubUrl: "",
+  },
+  {
+    id: 11,
+    title: "Rayed Site",
+    technologies: ["NextJS", "tailwind", "ts", "responsive", "html"],
+    image: "/images/rayed.png",
+    liveUrl: "https://rayed.net/en",
+    githubUrl: "None",
+  },
+  {
+    id: 12,
+    title: "Aroovia",
+    technologies: ["Angular", "TypeScript", "html", "responsive"],
+    image: "/images/aroovia.png",
+    liveUrl: "https://aroovia.com/",
+    githubUrl: "",
+  },
+  {
+    id: 2,
+    title: "smooth-erp site",
+    technologies: ["NextJS", "TailwindCSS", "TypeScript", "React", "AntDesign"],
+    image: "/images/smooth-erp.png",
+    liveUrl: "https://smootherp.com/",
+    githubUrl: "",
+  },
+  {
+    id: 2,
+    title: "FiveM Tech",
+    technologies: [
+      "NextJS",
+      "TailwindCSS",
+      "TypeScript",
+      "React",
+      "Framer Motion",
+    ],
+    image: "/images/5m-tech.png",
+    liveUrl: "https://5m-tech.com/",
+    githubUrl: "",
+  },
+  {
+    id: 234,
+    title: "Bahu",
+    technologies: ["NextJS", "TailwindCSS", "TypeScript", "React", "GSAP"],
+    image: "/images/bahu.png",
+    liveUrl: "https://bahu.com/",
+    githubUrl: "",
+  },
+  {
+    id: 2,
+    title: "Hyperfinition",
+    technologies: ["TailwindCSS", "TypeScript", "React", "MUI"],
+    image: "/images/hyperfinition.png",
+    liveUrl: "https://site.hyperfinition.com/",
+    githubUrl: "",
+  },
+  {
+    id: 3,
+    title: "Bahu",
+    technologies: ["NextJS", "TailwindCSS", "TypeScript", "React", "GSAP"],
+    image: "/images/bahu.png",
+    liveUrl: "https://bahu.com/",
+    githubUrl: "",
+  },
+  {
     id: 6,
     title: "To Do List",
-    technologies: ["html", "css", "React", "firebase", "responsive"],
+    technologies: ["Javascript", "React", "firebase", "responsive"],
     image: "/images/toDoList.png",
     liveUrl: "https://to-do-list-react-nu-coral.vercel.app/",
     githubUrl: "https://github.com/mahmoudbahaa755/to-do-list--React-",
@@ -31,7 +102,7 @@ const projects = [
   {
     id: 8,
     title: "Restaurant Menu",
-    technologies: ["html", "css", "React", "firebase", "responsive"],
+    technologies: ["Javascript", "React", "firebase", "responsive"],
     image: "/images/Restaurant.png",
     liveUrl:
       "https://restaurant-react-lip8hvqbn-mahmoud-bahaas-projects.vercel.app/",
@@ -41,7 +112,7 @@ const projects = [
   {
     id: 3,
     title: "Italino Restaurant",
-    technologies: ["html", "css", "js", "responsive"],
+    technologies: ["Javascript", "js", "responsive"],
     image: "/images/restrount.png",
     liveUrl:
       "https://restaurant-web-site-pg2k6qy0e-mahmoud-bahaas-projects.vercel.app/",
@@ -50,7 +121,7 @@ const projects = [
   {
     id: 9,
     title: "Form Page",
-    technologies: ["html", "css", "React", "mui", "responsive"],
+    technologies: ["Javascript", "React", "mui", "responsive"],
     image: "/images/formPage.png",
     liveUrl: "https://form-three-snowy.vercel.app/",
     githubUrl: "https://github.com/mahmoudbahaa755/Form",
@@ -58,7 +129,7 @@ const projects = [
   {
     id: 4,
     title: "Shopping List",
-    technologies: ["html", "css", "React", "responsive"],
+    technologies: ["Javascript", "React", "responsive"],
     image: "/images/shopinglist.png",
     liveUrl:
       "https://react-shopping-list-9kn0j19qk-mahmoud-bahaas-projects.vercel.app/",
@@ -67,7 +138,7 @@ const projects = [
   {
     id: 1,
     title: "Loan Template",
-    technologies: ["html", "css", "responsive"],
+    technologies: ["Javascript", "html", "css", "responsive"],
     image: "/images/loanTemplate.png",
     liveUrl: "https:/mahmoudbahaa12.github.io/Loan-Template/",
     githubUrl: "https://github.com/mahmoudbahaa12/Loan-Template",
@@ -75,7 +146,7 @@ const projects = [
   {
     id: 5,
     title: "Minx Template",
-    technologies: ["html", "css", "bootstrap", "responsive"],
+    technologies: ["Javascript", "html", "css", "bootstrap", "responsive"],
     image: "/images/minx.png",
     liveUrl: "https://template-3-eight.vercel.app/",
     githubUrl: "https://github.com/mahmoudbahaa755/Minx-Template",
@@ -83,7 +154,7 @@ const projects = [
   {
     id: 6,
     title: "To Do List",
-    technologies: ["html", "css", "React", "firebase", "responsive"],
+    technologies: ["Javascript", "React", "firebase", "responsive"],
     image: "/images/toDoList.png",
     liveUrl: "https://to-do-list-react-nu-coral.vercel.app/",
     githubUrl: "https://github.com/mahmoudbahaa755/to-do-list--React-",
@@ -92,18 +163,10 @@ const projects = [
   {
     id: 2,
     title: "Portfolio",
-    technologies: ["html", "css", "responsive", "NextJS", "React"],
+    technologies: ["Javascript", "NextJS", "React"],
     image: "/images/portofilo.png",
     liveUrl: "https://github.com/mahmoudbahaa755/portifolio",
     githubUrl: "https://portifolio-ten-tawny.vercel.app/",
-  },
-  {
-    id: 11,
-    title: "Rayed Site",
-    technologies: ["NextJS", "tailwind", "ts", "html", "responsive"],
-    image: "/images/rayed.png",
-    liveUrl: "https://rayed.net/en",
-    githubUrl: "None",
   },
 
   {
@@ -151,7 +214,17 @@ const itemVariants = {
 };
 
 export default function Projects() {
+  const [filter, setFilter] = useState("");
   const cardsRef = useRef([]);
+
+  // Filter projects based on the input
+  const filteredProjects = projects.filter(
+    (project) =>
+      project.title.toLowerCase().includes(filter.toLowerCase()) ||
+      project.technologies.some((tech) =>
+        tech.toLowerCase().includes(filter.toLowerCase())
+      )
+  );
 
   useEffect(() => {
     cardsRef.current.forEach((card, index) => {
@@ -191,8 +264,24 @@ export default function Projects() {
       animate="visible"
     >
       <h1 className="section-heading">My Projects</h1>
+
+      {/* Add filter input */}
+      <Input
+        type="text"
+        placeholder="Filter projects by title or technology..."
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
+        className="max-w-md mx-auto"
+      />
+
+      {/* Add dashboard hint */}
+      <p className="text-center text-sm text-gray-500 italic">
+        Note: I have also developed dashboards, but due to confidentiality, I
+        cannot share them publicly.
+      </p>
+
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project, index) => (
+        {filteredProjects.map((project, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
@@ -226,7 +315,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
+                      Live Link
                     </a>
                   </Button>
                   <Button
