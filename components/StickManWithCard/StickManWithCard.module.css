@@ -1,0 +1,240 @@
+.la {
+  margin-left: 1px;
+  margin-top: -70px;
+  width: 50px;
+  height: 10px;
+  position: absolute;
+  background: green;
+  border-radius: 2px;
+  -ms-transform: rotate(280deg);
+
+  -webkit-transform: rotate(20deg);
+
+  transform: rotate(280deg);
+
+}
+
+.main {
+  position: relative;
+  top: 0;
+  z-index: 100;
+  transition: all 1s ease-in-out;
+  right: 0;
+}
+
+.mouth {
+  margin-left: 38px;
+  margin-top: -97px;
+  width: 5px;
+  height: 3px;
+  border-radius: 50%;
+  position: absolute;
+  background: black;
+  z-index: 10;
+}
+
+.l-eye {
+  margin-left: 43px;
+  margin-top: -104px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  border-radius: 9px;
+  position: absolute;
+  background: black;
+  z-index: 10;
+}
+
+.r-eye {
+  margin-left: 38px;
+  margin-top: -104px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  border-radius: 9px;
+  position: absolute;
+  background: black;
+  z-index: 10;
+}
+
+.card {
+  margin-left: 0px;
+  position: absolute;
+  margin-top: -90px;
+  width: 100px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--main-color);
+  background: whitesmoke;
+}
+
+.card a {
+  text-decoration: none;
+  color: var(--main-color);
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.card:hover a {
+  color: var(--main-color);
+  animation: textAnimation 1.3s infinite;
+  /* Change to your desired hover color */
+  transform: scale(1.2);
+}
+
+@keyframes textAnimation {
+  0% {
+    transform: scale(1);
+    color: #333;
+  }
+
+  25% {
+    transform: scaley(1.2);
+    color: var(--main-color);
+    /* Change to your desired hover color */
+  }
+
+  50% {
+    transform: scaley(1);
+    color: #333;
+  }
+
+  75% {
+    transform: scalex(1.2);
+    color: var(--main-color);
+
+    /* Change to your desired hover color */
+  }
+
+  100% {
+    transform: scalex(1);
+    color: #333;
+  }
+}
+
+.ra {
+  margin-left: 39px;
+  margin-top: -70px;
+  width: 50px;
+  height: 10px;
+  position: absolute;
+  background: green;
+  border-radius: 2px;
+  -ms-transform: rotate(80deg);
+  /* IE 9 */
+  -webkit-transform: rotate(20deg);
+  /* Safari */
+  transform: rotate(80deg);
+  /* Standard syntax */
+}
+
+.rl {
+  margin-left: 50px;
+  margin-top: -50px;
+  width: 10px;
+  height: 50px;
+  background: green;
+  border-radius: 2px;
+  position: absolute;
+}
+
+.ll {
+  margin-left: 30px;
+  margin-top: -50px;
+  width: 10px;
+  height: 50px;
+  background: green;
+  border-radius: 2px;
+  position: absolute;
+}
+
+
+.h {
+  margin-left: 35px;
+  margin-top: -110px;
+  width: 20px;
+  height: 20px;
+  border-radius: 9px;
+  position: absolute;
+  background: green;
+}
+
+
+.bdy {
+  margin-left: 30px;
+  margin-top: -90px;
+  width: 30px;
+  height: 60px;
+  position: absolute;
+  background: green
+}
+
+.one {
+  border: 1px solid green;
+  width: 50px;
+  height: 50px;
+  margin-top: 200px;
+}
+
+.two {
+  border: 1px solid green;
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+  margin-top: -90px;
+}
+
+.rl,
+.ll,
+.bdy,
+.mouth,
+.r-eye,
+.l-eye {
+  transition: 0.8s;
+}
+
+.main:hover .l-eye {
+  margin-left: 46px;
+}
+
+.main:hover .r-eye {
+  margin-left: 39px;
+
+}
+
+.main:hover .mouth {
+  margin-left: 40px;
+  width: 8px;
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(30deg);
+  }
+
+  50% {
+    transform: rotate(50deg);
+  }
+
+  100% {
+    transform: rotate(30deg);
+  }
+}
+
+.main:hover .la {
+  margin-left: 1px;
+  margin-top: -75px;
+  width: 90px;
+  height: 10px;
+  position: absolute;
+  background: green;
+  border-radius: 2px;
+  animation: rotateAnimation 2s infinite;
+
+}
