@@ -20,34 +20,97 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "E-commerce Platform",
-    description:
-      "A full-featured e-commerce platform with product management, shopping cart, and payment integration.",
-    technologies: ["React", "NextJS", "TailwindCSS"],
-    liveUrl: "https://example-ecommerce.com",
-    githubUrl: "",
-    imageUrl: "https://source.unsplash.com/random/800x600?ecommerce",
+    id: 6,
+    title: "To Do List",
+    technologies: ["html", "css", "react", "firebase", "responsive"],
+    image: "/images/toDoList.png",
+    liveUrl: "https://to-do-list-react-nu-coral.vercel.app/",
+    githubUrl: "https://github.com/mahmoudbahaa755/to-do-list--React-",
+  },
+
+  {
+    id: 2,
+    title: "Portfolio",
+    technologies: ["html", "css", "responsive", "next", "react"],
+    image: "/images/portofilo.png",
+    liveUrl: "https://github.com/mahmoudbahaa755/portifolio",
+    githubUrl: "https://portifolio-ten-tawny.vercel.app/",
   },
   {
-    title: "Task Management App",
-    description:
-      "A collaborative task management application with real-time updates and team features.",
-    technologies: ["Vue.js", "Firebase", "Vuex", "Tailwind CSS"],
-    liveUrl: "https://example-taskapp.com",
-    githubUrl: "",
-    imageUrl: "https://source.unsplash.com/random/800x600?task-management",
+    id: 8,
+    title: "Restaurant Menu",
+    technologies: ["html", "css", "react", "firebase", "responsive"],
+    image: "/images/Restaurant.png",
+    liveUrl:
+      "https://restaurant-react-lip8hvqbn-mahmoud-bahaas-projects.vercel.app/",
+    githubUrl: "https://github.com/mahmoudbahaa755/Restaurant-react",
+  },
+
+  {
+    id: 3,
+    title: "Italino Restaurant",
+    technologies: ["html", "css", "js", "responsive"],
+    image: "/images/restrount.png",
+    liveUrl:
+      "https://restaurant-web-site-pg2k6qy0e-mahmoud-bahaas-projects.vercel.app/",
+    githubUrl: "https://github.com/mahmoudbahaa755/restaurant-web-site",
   },
   {
-    title: "Weather Dashboard",
-    description:
-      "A responsive weather dashboard that provides real-time weather information and forecasts.",
-    technologies: ["React", "Redux", "OpenWeatherMap API", "Chart.js"],
-    liveUrl: "https://example-weather.com",
-    githubUrl: "https://github.com/johndoe/weather-dashboard",
-    imageUrl: "https://source.unsplash.com/random/800x600?weather",
+    id: 9,
+    title: "Form Page",
+    technologies: ["html", "css", "react", "mui", "responsive"],
+    image: "/images/formPage.png",
+    liveUrl: "https://form-three-snowy.vercel.app/",
+    githubUrl: "https://github.com/mahmoudbahaa755/Form",
+  },
+  {
+    id: 4,
+    title: "Shopping List",
+    technologies: ["html", "css", "react", "responsive"],
+    image: "/images/shopinglist.png",
+    liveUrl:
+      "https://react-shopping-list-9kn0j19qk-mahmoud-bahaas-projects.vercel.app/",
+    githubUrl: "https://github.com/mahmoudbahaa755/react-shopping-list",
+  },
+  {
+    id: 1,
+    title: "Loan Template",
+    technologies: ["html", "css", "responsive"],
+    image: "/images/loanTemplate.png",
+    liveUrl: "https:/mahmoudbahaa12.github.io/Loan-Template/",
+    githubUrl: "https://github.com/mahmoudbahaa12/Loan-Template",
+  },
+  {
+    id: 5,
+    title: "Minx Template",
+    technologies: ["html", "css", "bootstrap", "responsive"],
+    image: "/images/minx.png",
+    liveUrl: "https://template-3-eight.vercel.app/",
+    githubUrl: "https://github.com/mahmoudbahaa755/Minx-Template",
+  },
+
+  {
+    id: 7,
+    title: "Web Scrapping",
+    technologies: ["python", "html"],
+    image: "/images/wuzzef.png",
+    liveUrl: "https://github.com/mahmoudbahaa755/web-scrapping-wuzzef-",
+    githubUrl: "https://github.com/mahmoudbahaa755/web-scrapping-wuzzef-",
   },
 ];
 
+export const skills = {
+  html: "./icons/html.png",
+  css: "./icons/css.png",
+  js: "./icons/js.png",
+  react: "./icons/react.png",
+  next: "/icons/nextjs.svg",
+  responsive: "./icons/responsive.png",
+  firebase: "./icons/firebase.svg",
+  bootstrap: "./icons/bootstrap.svg",
+  python: "./icons/python.png",
+  mui: "./icons/material-ui.svg",
+};
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -120,7 +183,7 @@ export default function Projects() {
           >
             <Card className="h-full flex flex-col overflow-hidden card-hover">
               <Image
-                src={project.imageUrl}
+                src={project.image || ""}
                 alt={project.title}
                 width={800}
                 height={600}

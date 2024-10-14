@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,55 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { toast } from "sonner";
-import emailjs from "emailjs-com";
+import { Mail, Phone } from "lucide-react";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    emailjs
-      .send(
-        "service_lszqazb", // Replace with your EmailJS service ID
-        "", // Replace with your EmailJS template ID
-        formData,
-        "ROtx35MB4mKpH5bV4" // Replace with your EmailJS user ID
-      )
-      .then(
-        (result: any) => {
-          console.log("Email successfully sent!", result.text);
-          toast.success(
-            "Message Sent! Thank you for your message. I'll get back to you soon."
-          );
-          setFormData({ name: "", email: "", message: "" });
-        },
-        (error) => {
-          console.error("There was an error sending the email:", error.text);
-          toast.error("Failed to send message. Please try again later.");
-        }
-      );
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -65,59 +19,39 @@ export default function Contact() {
       className="space-y-8"
     >
       <h1 className="text-3xl font-bold">Contact Me</h1>
-      <Card>
-        <CardHeader>
-          <CardTitle>Get in Touch</CardTitle>
-          <CardDescription>
-            Fill out the form below to send me a message.
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card className="flex flex-col items-center p-6">
+          <Mail className="w-12 h-12 text-blue-500 mb-4" />
+          <CardTitle className="text-xl mb-2">Email</CardTitle>
+          <CardDescription className="text-center">
+            Drop me a line anytime!
           </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-1">
-                Name
-              </label>
-              <Input
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">
-                Email
-              </label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium mb-1"
-              >
-                Message
-              </label>
-              <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <Button type="submit">Send Message</Button>
-          </form>
-        </CardContent>
-      </Card>
+          <CardContent className="mt-4">
+            <a
+              href="mailto:mahmoudbahaa755@gmail.com"
+              className="text-blue-500 hover:underline"
+            >
+              mahmoudbahaa755@gmail.com
+            </a>
+          </CardContent>
+        </Card>
+
+        <Card className="flex flex-col items-center p-6">
+          <Phone className="w-12 h-12 text-green-500 mb-4" />
+          <CardTitle className="text-xl mb-2">Phone</CardTitle>
+          <CardDescription className="text-center">
+            Feel free to call or text
+          </CardDescription>
+          <CardContent className="mt-4">
+            <a
+              href="tel:+201010623847"
+              className="text-green-500 hover:underline"
+            >
+              +201010623847
+            </a>
+          </CardContent>
+        </Card>
+      </div>
     </motion.div>
   );
 }

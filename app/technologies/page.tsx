@@ -1,14 +1,36 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { Dog, DogIcon } from "lucide-react";
+import {
+  FaAngular,
+  FaAws,
+  FaBootstrap,
+  FaDocker,
+  FaDog,
+  FaGitAlt,
+  FaJava,
+  FaNode,
+  FaReact,
+  FaSass,
+} from "react-icons/fa";
+import {
+  SiAntdesign,
+  SiCplusplus,
+  SiDogecoin,
+  SiJavascript,
+  SiJenkins,
+  SiMui,
+  SiNextdotjs,
+  SiPython,
+  SiRedux,
+  SiStyledcomponents,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+} from "react-icons/si";
 
 const technologies = [
   {
@@ -21,9 +43,23 @@ const technologies = [
       "Tailwind CSS",
       "Bootstrap",
       "Sass",
+      "Shadcn",
       "MUI",
       "AntDesign",
       "Styled Components",
+    ],
+  },
+  {
+    category: "Libraries",
+    items: [
+      "React-Router",
+      "React-Query",
+      "Axios",
+      "GSAP",
+      "Framer Motion",
+      "Formik",
+      "Yup",
+      "react-hook-form",
     ],
   },
   {
@@ -40,6 +76,33 @@ const technologies = [
   },
 ];
 
+const getIcon = (name: any) => {
+  const icons = {
+    React: <FaReact />,
+    Angular: <FaAngular />,
+    NextJS: <SiNextdotjs />,
+    "Tailwind CSS": <SiTailwindcss />,
+    Bootstrap: <FaBootstrap />,
+    Sass: <FaSass />,
+    MUI: <SiMui />,
+    AntDesign: <SiAntdesign />,
+    "Styled Components": <SiStyledcomponents />,
+    Redux: <SiRedux />,
+    Husky: <FaDog />,
+    JavaScript: <SiJavascript />,
+    TypeScript: <SiTypescript />,
+    Python: <SiPython />,
+    Java: <FaJava />,
+    "C++": <SiCplusplus />,
+    Git: <FaGitAlt />,
+    Docker: <FaDocker />,
+    Jenkins: <SiJenkins />,
+    AWS: <FaAws />,
+    Vercel: <SiVercel />,
+  };
+  return icons[name] || null;
+};
+
 export default function Technologies() {
   return (
     <div className="space-y-8">
@@ -53,6 +116,7 @@ export default function Technologies() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ scale: 1.05 }}
           >
             <Card>
               <CardHeader>
@@ -61,7 +125,12 @@ export default function Technologies() {
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {tech.items.map((item, itemIndex) => (
-                    <Badge key={itemIndex} variant="secondary">
+                    <Badge
+                      key={itemIndex}
+                      variant="secondary"
+                      className="flex items-center gap-1"
+                    >
+                      {getIcon(item)}
                       {item}
                     </Badge>
                   ))}
