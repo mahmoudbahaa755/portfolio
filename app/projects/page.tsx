@@ -16,6 +16,7 @@ import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
+import { LockIcon } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,7 +24,15 @@ const projects = [
   {
     id: 1,
     title: "Smooth-ERP",
-    technologies: ["NextJS", "TailwindCSS", "TypeScript", "React", "AntDesign"],
+    technologies: [
+      "NextJS",
+      "React",
+      "react-hook-form",
+      "Joi",
+      "TailwindCSS",
+      "TypeScript",
+      "AntDesign",
+    ],
     image: "/images/smooth-erp.png",
     liveUrl: "https://test.smootherp.com/ar",
     githubUrl: "",
@@ -31,7 +40,7 @@ const projects = [
   {
     id: 11,
     title: "Rayed Site",
-    technologies: ["NextJS", "tailwind", "ts", "responsive", "html"],
+    technologies: ["NextJS", "tailwind", "TypeScript", "responsive", "html"],
     image: "/images/rayed.png",
     liveUrl: "https://rayed.net/en",
     githubUrl: "None",
@@ -48,7 +57,7 @@ const projects = [
     id: 2,
     title: "smooth-erp site",
     technologies: ["NextJS", "TailwindCSS", "TypeScript", "React", "AntDesign"],
-    image: "/images/smooth-erp.png",
+    image: "/images/smooth-erp-site.png",
     liveUrl: "https://smootherp.com/",
     githubUrl: "",
   },
@@ -66,28 +75,21 @@ const projects = [
     liveUrl: "https://5m-tech.com/",
     githubUrl: "",
   },
-  {
-    id: 234,
-    title: "Bahu",
-    technologies: ["NextJS", "TailwindCSS", "TypeScript", "React", "GSAP"],
-    image: "/images/bahu.png",
-    liveUrl: "https://bahu.com/",
-    githubUrl: "",
-  },
+
   {
     id: 2,
     title: "Hyperfinition",
     technologies: ["TailwindCSS", "TypeScript", "React", "MUI"],
-    image: "/images/hyperfinition.png",
+    image: "/images/hyper.png",
     liveUrl: "https://site.hyperfinition.com/",
     githubUrl: "",
   },
   {
     id: 3,
-    title: "Bahu",
+    title: "Pahu",
     technologies: ["NextJS", "TailwindCSS", "TypeScript", "React", "GSAP"],
-    image: "/images/bahu.png",
-    liveUrl: "https://bahu.com/",
+    image: "/images/pahu.png",
+    liveUrl: "https://pahu-landing-ijd.vercel.app/",
     githubUrl: "",
   },
   {
@@ -109,15 +111,6 @@ const projects = [
     githubUrl: "https://github.com/mahmoudbahaa755/Restaurant-react",
   },
 
-  {
-    id: 3,
-    title: "Italino Restaurant",
-    technologies: ["Javascript", "js", "responsive"],
-    image: "/images/restrount.png",
-    liveUrl:
-      "https://restaurant-web-site-pg2k6qy0e-mahmoud-bahaas-projects.vercel.app/",
-    githubUrl: "https://github.com/mahmoudbahaa755/restaurant-web-site",
-  },
   {
     id: 9,
     title: "Form Page",
@@ -162,9 +155,9 @@ const projects = [
 
   {
     id: 2,
-    title: "Portfolio",
-    technologies: ["Javascript", "NextJS", "React"],
-    image: "/images/portofilo.png",
+    title: "First Portfolio",
+    technologies: ["Javascript", "NextJS", "React", "CSS Modules"],
+    image: "/images/p.png",
     liveUrl: "https://github.com/mahmoudbahaa755/portifolio",
     githubUrl: "https://portifolio-ten-tawny.vercel.app/",
   },
@@ -273,13 +266,10 @@ export default function Projects() {
         onChange={(e) => setFilter(e.target.value)}
         className="max-w-md mx-auto"
       />
-
-      {/* Add dashboard hint */}
-      <p className="text-center text-sm text-gray-500 italic">
-        Note: I have also developed dashboards, but due to confidentiality, I
-        cannot share them publicly.
+      <p className="text-center text-sm  font-bold text-gray-500 italic">
+        <span className="text-red-700">Note: </span>I have also developed
+        dashboards, but due to confidentiality, I cannot share them publicly.
       </p>
-
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {filteredProjects.map((project, index) => (
           <motion.div
@@ -318,21 +308,29 @@ export default function Projects() {
                       Live Link
                     </a>
                   </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    disabled={!project.githubUrl}
-                    size="sm"
-                  >
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {project.githubUrl ? (
+                    <Button asChild variant="outline" size="sm">
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="mr-2 h-4 w-4" />
+                        GitHub
+                      </a>
+                    </Button>
+                  ) : (
+                    <div
+                      style={{
+                        cursor: "not-allowed !important",
+                      }}
                     >
-                      <Github className="mr-2 h-4 w-4" />
-                      GitHub
-                    </a>
-                  </Button>
+                      <Button variant="outline" size="sm" disabled>
+                        <LockIcon className="mr-2 h-4 w-4" />
+                        Private Code
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>

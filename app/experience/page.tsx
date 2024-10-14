@@ -64,22 +64,19 @@ const educations = [
     degree: "DEBI Scholarship in Data Science and Cloud",
     institution: "Tech University",
     year: "2016",
-    description: "Specialized in Web Technologies and User Interface Design",
-    achievements: ["Thesis on Progressive Web Apps", "Dean's List"],
+    description: "Specialized in Cloud Computing and Data Science",
   },
   {
     degree: "Bachelor of Computer Science",
     institution: "Tanta University",
     year: "2019 - 2023",
     description: "Focus on Software Development and Web Programming",
-    achievements: ["Graduated with Honors", "Web Development Club President"],
   },
   {
     degree: "ITI web development (150 hours)",
     institution: "CodeCamp Academy",
     year: "2020",
     description: "Intensive 4-week program on modern frontend technologies",
-    achievements: ["Best Final Project Award"],
   },
 ];
 
@@ -211,14 +208,18 @@ export default function Experience() {
                 </CardHeader>
                 <CardContent>
                   <p className="mb-4">{edu.description}</p>
-                  <div className="space-y-2">
-                    <h4 className="font-semibold">Achievements:</h4>
-                    <ul className="list-disc list-inside">
-                      {edu.achievements.map((achievement, achievementIndex) => (
-                        <li key={achievementIndex}>{achievement}</li>
-                      ))}
-                    </ul>
-                  </div>
+                  {edu?.achievements && (
+                    <div className="space-y-2">
+                      <h4 className="font-semibold">Achievements:</h4>
+                      <ul className="list-disc list-inside">
+                        {edu?.achievements.map(
+                          (achievement, achievementIndex) => (
+                            <li key={achievementIndex}>{achievement}</li>
+                          )
+                        )}
+                      </ul>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>

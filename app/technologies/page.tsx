@@ -60,6 +60,8 @@ const technologies = [
       "Framer Motion",
       "Formik",
       "Yup",
+      "Zod",
+      "Joi",
       "react-hook-form",
     ],
   },
