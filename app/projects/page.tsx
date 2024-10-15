@@ -222,7 +222,7 @@ const itemVariants = {
 
 export default function Projects() {
   const [filter, setFilter] = useState("");
-  const cardsRef = useRef([]);
+  const cardsRef = useRef<any>([]);
 
   // Filter projects based on the input
   const filteredProjects = projects.filter(
@@ -234,7 +234,7 @@ export default function Projects() {
   );
 
   useEffect(() => {
-    cardsRef.current.forEach((card, index) => {
+    cardsRef.current.forEach((card: any) => {
       gsap.fromTo(
         card,
         { y: 50, opacity: 0 },
@@ -289,7 +289,7 @@ export default function Projects() {
           <motion.div
             key={index}
             variants={itemVariants}
-            ref={(el) => (cardsRef.current[index] = el)}
+            ref={(el) => (cardsRef.current[index] = el as HTMLDivElement)}
           >
             <Card className="h-full flex flex-col overflow-hidden card-hover">
               <Image
