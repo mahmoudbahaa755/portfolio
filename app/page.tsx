@@ -77,7 +77,7 @@ export default function Home() {
     );
 
     // Interactive animation on mouse move
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: any) => {
       const { clientX, clientY } = e;
       const xPos = (clientX / window.innerWidth - 0.5) * 20;
       const yPos = (clientY / window.innerHeight - 0.5) * 20;

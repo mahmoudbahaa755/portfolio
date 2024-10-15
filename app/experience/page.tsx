@@ -103,8 +103,8 @@ const itemVariants = {
 };
 
 export default function Experience() {
-  const experienceRef = useRef([]);
-  const educationRef = useRef([]);
+  const experienceRef = useRef<any>([]);
+  const educationRef = useRef<any>([]);
 
   useEffect(() => {
     const animateCards = (cards: any) => {
@@ -206,7 +206,7 @@ export default function Experience() {
                 </CardHeader>
                 <CardContent>
                   <p className="mb-4">{edu.description}</p>
-                  {edu?.achievements && (
+                  {/* {edu?.achievements && (
                     <div className="space-y-2">
                       <h4 className="font-semibold">Achievements:</h4>
                       <ul className="list-disc list-inside">
@@ -217,7 +217,7 @@ export default function Experience() {
                         )}
                       </ul>
                     </div>
-                  )}
+                  )} */}
                 </CardContent>
               </Card>
             </motion.div>

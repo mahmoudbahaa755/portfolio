@@ -186,18 +186,6 @@ const projects = [
   },
 ];
 
-export const skills = {
-  html: "./icons/html.png",
-  css: "./icons/css.png",
-  js: "./icons/js.png",
-  react: "./icons/react.png",
-  next: "/icons/nextjs.svg",
-  responsive: "./icons/responsive.png",
-  firebase: "./icons/firebase.svg",
-  bootstrap: "./icons/bootstrap.svg",
-  python: "./icons/python.png",
-  mui: "./icons/material-ui.svg",
-};
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
