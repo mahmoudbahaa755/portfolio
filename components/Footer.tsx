@@ -28,7 +28,7 @@ export default function Footer() {
               <Linkedin size={24} />
             </a>
             <a
-              href="https://twitter.com/johndoe"
+              href="tel:+201010623847"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
