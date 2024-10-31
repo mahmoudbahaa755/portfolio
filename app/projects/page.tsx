@@ -37,13 +37,20 @@ const projects = [
     liveUrl: "https://test.smootherp.com/ar",
     githubUrl: "",
   },
+
   {
-    id: 11,
-    title: "Rayed Site",
-    technologies: ["NextJS", "tailwind", "TypeScript", "responsive", "html"],
-    image: "/images/rayed.png",
-    liveUrl: "https://rayed.net/en",
-    githubUrl: "None",
+    id: "23",
+    title: "She Bake",
+    technologies: [
+      "NextJS",
+      "React",
+      "tailwindCSS",
+      "TypeScript",
+      "Zustand",
+    ],
+    image: "/images/sheBake.png",
+    liveUrl: "https://she-bake.vercel.app/",
+    githubUrl: "",
   },
   {
     id: "23",
@@ -62,15 +69,16 @@ const projects = [
   {
     id: 12,
     title: "Aroovia",
-    technologies: ["Angular", "TypeScript", "html", "responsive"],
+    technologies: ["Angular", "TypeScript", "Rxjs", "responsive"],
     image: "/images/aroovia.png",
     liveUrl: "https://aroovia.com/",
     githubUrl: "",
   },
+
   {
     id: 2,
     title: "smooth-erp site",
-    technologies: ["NextJS", "TailwindCSS", "TypeScript", "React", "AntDesign"],
+    technologies: ["NextJS", "TailwindCSS", "TypeScript", "React", "Framer Motion", 'GSAP'],
     image: "/images/smooth-erp-site.png",
     liveUrl: "https://smootherp.com/",
     githubUrl: "",
@@ -89,7 +97,14 @@ const projects = [
     liveUrl: "https://5m-tech.com/",
     githubUrl: "",
   },
-
+  {
+    id: 11,
+    title: "Rayed Site",
+    technologies: ["NextJS", "tailwind", "TypeScript", "responsive", "html"],
+    image: "/images/rayed.png",
+    liveUrl: "https://rayed.net/en",
+    githubUrl: "",
+  },
   {
     id: 2,
     title: "Hyperfinition",
