@@ -1,10 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Dog, DogIcon } from "lucide-react";
 import {
   FaAngular,
   FaAws,
@@ -13,14 +11,12 @@ import {
   FaDog,
   FaGitAlt,
   FaJava,
-  FaNode,
   FaReact,
-  FaSass,
+  FaSass
 } from "react-icons/fa";
 import {
   SiAntdesign,
   SiCplusplus,
-  SiDogecoin,
   SiJavascript,
   SiJenkins,
   SiMui,
@@ -30,7 +26,7 @@ import {
   SiStyledcomponents,
   SiTailwindcss,
   SiTypescript,
-  SiVercel,
+  SiVercel
 } from "react-icons/si";
 
 const technologies = [
@@ -67,7 +63,7 @@ const technologies = [
   },
   {
     category: "State Management",
-    items: ["Redux", "Redux Toolkit", "Context API"],
+    items: ["Redux", "Redux Toolkit", "Context API", "Zustand"],
   },
   {
     category: "Programming Languages",
