@@ -26,6 +26,14 @@ const experiences = [
     skills: ["GSAP", "Angular", "Management"],
   },
   {
+    title: "AI Engineer",
+    company: "Rology",
+    period: "2024,July - 2024,October",
+    description:
+      "Project Based Work (remote), Building an auto impression system using LLM",
+    skills: ["Python", "LLAMA3", "HuggingFace", "LLM"],
+  },
+  {
     title: "Frontend Developer",
     company: "FiveM Technologies",
     period: " 2024, March - 2024,November",
@@ -42,6 +50,14 @@ const experiences = [
     ],
   },
   {
+    title: "Machine Learning Engineer(internship)",
+    company: "Radical AI",
+    period: "2023,October - 2023,December",
+    description:
+      "Building a chatbot using LLM for making an Interview simulation",
+    skills: ["Python", "API", "HuggingFace", "LLM", "LangChain"],
+  },
+  {
     title: "Junior Web Developer",
     company: "Dr Code",
     period: "2023, October - 2024, March",
@@ -55,6 +71,21 @@ const experiences = [
       "Bootstrap",
       "Formik",
       "MUI",
+    ],
+  },
+  {
+    title: "Data Scientist",
+    company: "Dr Code",
+    period: "2022, June - 2022,July",
+    description:
+      "Project Based Work (remote), Building an Ai System for auto extraction of data from invoices",
+    skills: [
+      "Python",
+      "Pandas",
+      "Numpy",
+      "TensorFlow",
+      "YOLO",
+      "Image preprocessing",
     ],
   },
 ];
