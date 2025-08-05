@@ -23,7 +23,7 @@ const experiences = [
     period: "2024,November - Present",
     description:
       "Led the frontend development team in creating responsive and accessible web applications using React and Next.js.",
-    skills: ["GSAP", "Angular", "Management"],
+    skills: ["GSAP", "React", "Next.js", "Management"],
   },
   {
     title: "AI Engineer",
