@@ -175,22 +175,16 @@ export default function Services() {
     return (
         <div
             ref={containerRef}
-            // style={{ y }}
-            className="space-y-16"
+            className="space-y-12 md:space-y-16 px-4 md:px-0"
         >
-            <div
-                // initial={{ opacity: 0, y: 20 }}
-                // animate={{ opacity: 1, y: 0 }}
-                // transition={{ duration: 0.5 }}
-                className="text-center space-y-4"
-            >
-                <h1 className="section-heading">My Services</h1>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <div className="text-center space-y-4">
+                <h1 className="section-heading text-2xl md:text-3xl">My Services</h1>
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
                     Transforming ideas into reality through code and creativity
                 </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
                 {services.map((service, index) => (
                     <ServiceCard
                         key={index}
@@ -203,9 +197,9 @@ export default function Services() {
                 ))}
             </div>
 
-            <section className="benefits-section space-y-8">
-                <h2 className="text-2xl font-bold text-center">Why Choose My Services?</h2>
-                <div className="grid md:grid-cols-3 gap-8">
+            <section className="benefits-section space-y-6 md:space-y-8">
+                <h2 className="text-xl md:text-2xl font-bold text-center">Why Choose My Services?</h2>
+                <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                     {benefits.map((benefit, index) => (
                         <BenefitCard key={index} benefit={benefit} />
                     ))}

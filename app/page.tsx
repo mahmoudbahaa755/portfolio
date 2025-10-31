@@ -99,52 +99,54 @@ export default function Home() {
 
   return (
     <motion.div
-      className="flex flex-col md:flex-row items-center justify-between min-h-[calc(100vh-4rem)] py-12"
+      className="flex flex-col md:flex-row items-center justify-between min-h-[calc(100vh-4rem)] py-8 md:py-12 px-4 md:px-0"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       <div
         ref={textRef}
-        className="md:w-1/2 text-center md:text-left mb-8 md:mb-0"
+        className="w-full md:w-1/2 text-center md:text-left mb-12 md:mb-0"
       >
         <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-6 gradient-text"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 gradient-text"
           variants={itemVariants}
         >
           Mahmoud Bahaa
         </motion.h1>
         <motion.h2
-          className="text-2xl md:text-3xl mb-4"
+          className="text-xl sm:text-2xl md:text-3xl mb-4 md:mb-6 text-muted-foreground"
           variants={itemVariants}
         >
           Software Engineer
         </motion.h2>
-        <motion.p className="text-xl mb-8 max-w-2xl" variants={itemVariants}>
+        <motion.p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto md:mx-0" variants={itemVariants}>
           Crafting beautiful and functional web experiences with a passion for
           clean code and user-centric design.
         </motion.p>
-        <motion.div className="mb-8" variants={itemVariants}>
-          <p className="font-semibold">Specialized in:</p>
-          <p>React • Next.js • TypeScript • Tailwind CSS</p>
+        <motion.div className="mb-6 md:mb-8" variants={itemVariants}>
+          <p className="font-semibold mb-2 text-sm sm:text-base">Specialized in:</p>
+          <p className="text-sm sm:text-base">React • Next.js • TypeScript • Tailwind CSS</p>
         </motion.div>
-        <motion.div className="space-x-4" variants={itemVariants}>
-          <Button asChild size="lg">
+        <motion.div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start" variants={itemVariants}>
+          <Button asChild size="lg" className="w-full sm:w-auto">
             <Link href="/projects">
               View My Work <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg">
+          <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
             <Link href="/contact">Get in Touch</Link>
           </Button>
         </motion.div>
       </div>
       <motion.div
         ref={imageRef}
-        className="md:w-1/2 flex bg-gray-500 justify-center"
+        className="w-full md:w-1/2 flex justify-center items-center mt-8 md:mt-0"
         variants={itemVariants}
       >
-        <StickManWithCard />
+        <div className="w-full max-w-md">
+          <StickManWithCard />
+        </div>
       </motion.div>
     </motion.div>
   );

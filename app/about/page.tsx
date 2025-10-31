@@ -33,13 +33,13 @@ export default function About() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="space-y-8"
+      className="space-y-8 px-4 md:px-0"
     >
-      <motion.h1 variants={itemVariants} className="text-3xl font-bold">
+      <motion.h1 variants={itemVariants} className="text-2xl md:text-3xl font-bold">
         About Me
       </motion.h1>
-      <Card>
-        <CardHeader className="flex flex-col items-center">
+      <Card className="max-w-3xl mx-auto">
+        <CardHeader className="flex flex-col items-center pt-8">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -49,29 +49,28 @@ export default function About() {
               damping: 20,
             }}
           >
-            <Avatar className="h-32 w-32">
-              {/* <AvatarImage src="@/public/fromal.jpg" alt="Profile picture" /> */}
-              <div className="w-32 h-32">
+            <Avatar className="h-24 w-24 sm:h-32 sm:w-32">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden">
                 <Image
                   width={150}
                   height={150}
                   src="/fromal.jpg"
                   alt="Profile picture"
+                  className="object-cover w-full h-full"
                 />
               </div>
             </Avatar>
-            {/* <AvatarFallback>MB</AvatarFallback> */}
           </motion.div>
           <motion.div variants={itemVariants}>
-            <CardTitle className="mt-4">Mahmoud Bahaa</CardTitle>
+            <CardTitle className="mt-4 text-xl sm:text-2xl">Mahmoud Bahaa</CardTitle>
           </motion.div>
         </CardHeader>
-        <CardContent>
-          <motion.p variants={itemVariants} className="text-center mb-6">
+        <CardContent className="px-6 sm:px-8 pb-8">
+          <motion.p variants={itemVariants} className="text-center mb-6 text-sm sm:text-base">
             Passionate Frontend Developer with 2+ years of experience in
             creating responsive and user-friendly web applications.
           </motion.p>
-          <motion.div variants={containerVariants} className="space-y-4">
+          <motion.div variants={containerVariants} className="space-y-6">
             {[
               {
                 title: "My Journey",
@@ -85,8 +84,8 @@ export default function About() {
               },
             ].map((section, index) => (
               <motion.section key={index} variants={itemVariants}>
-                <h3 className="font-semibold mb-2">{section.title}</h3>
-                <p>{section.content}</p>
+                <h3 className="font-semibold mb-2 text-base sm:text-lg">{section.title}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground">{section.content}</p>
               </motion.section>
             ))}
           </motion.div>

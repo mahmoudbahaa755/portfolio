@@ -176,35 +176,37 @@ export default function Experience() {
 
   return (
     <motion.div
-      className="space-y-16"
+      className="space-y-12 md:space-y-16 px-4 md:px-0"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       <section>
-        <h1 className="section-heading flex items-center">
-          <Briefcase className="mr-2" />
+        <h1 className="section-heading flex items-center text-2xl md:text-3xl flex-wrap">
+          <Briefcase className="mr-2 h-6 w-6 md:h-8 md:w-8" />
           Professional Experience
         </h1>
-        <div className="space-y-8">
+        <div className="space-y-6 md:space-y-8">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              ref={(el) => (experienceRef.current[index] = el)}
+              ref={(el) => {
+                if (el) experienceRef.current[index] = el;
+              }}
             >
               <Card className="card-hover">
                 <CardHeader>
-                  <CardTitle>{exp.title}</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-lg sm:text-xl">{exp.title}</CardTitle>
+                  <CardDescription className="text-sm">
                     {exp.company} | {exp.period}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4">{exp.description}</p>
+                  <p className="mb-4 text-sm sm:text-base">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.skills.map((skill, skillIndex) => (
-                      <Badge key={skillIndex} variant="secondary">
+                      <Badge key={skillIndex} variant="secondary" className="text-xs">
                         {skill}
                       </Badge>
                     ))}
@@ -217,26 +219,28 @@ export default function Experience() {
       </section>
 
       <section>
-        <h1 className="section-heading flex items-center">
-          <GraduationCap className="mr-2" />
+        <h1 className="section-heading flex items-center text-2xl md:text-3xl flex-wrap">
+          <GraduationCap className="mr-2 h-6 w-6 md:h-8 md:w-8" />
           Education
         </h1>
-        <div className="space-y-8">
+        <div className="space-y-6 md:space-y-8">
           {educations.map((edu, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              ref={(el) => (educationRef.current[index] = el)}
+              ref={(el) => {
+                if (el) educationRef.current[index] = el;
+              }}
             >
               <Card className="card-hover">
                 <CardHeader>
-                  <CardTitle>{edu.degree}</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-lg sm:text-xl">{edu.degree}</CardTitle>
+                  <CardDescription className="text-sm">
                     {edu.institution} | {edu.year}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4">{edu.description}</p>
+                  <p className="mb-4 text-sm sm:text-base">{edu.description}</p>
                   {/* {edu?.achievements && (
                     <div className="space-y-2">
                       <h4 className="font-semibold">Achievements:</h4>

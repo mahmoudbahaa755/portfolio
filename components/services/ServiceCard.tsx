@@ -33,56 +33,47 @@ export default function ServiceCard({
     return (
         <Card
             ref={ref}
-            className={`relative overflow-hidden transition-all duration-300 ${isActive ? 'z-10' : 'z-0'
+            className={`relative overflow-hidden transition-all duration-300 card-hover ${isActive ? 'z-10' : 'z-0'
                 }`}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16" />
+            <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-primary/5 rounded-full -mr-12 -mt-12 sm:-mr-16 sm:-mt-16" />
             <CardHeader>
-                <div className="flex items-center space-x-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                        <Icon className="h-6 w-6 text-primary" />
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                    <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                        <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                     </div>
-                    <CardTitle>{title}</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl">{title}</CardTitle>
                 </div>
             </CardHeader>
-            <CardContent className="space-y-6">
-                <CardDescription className="text-base">
+            <CardContent className="space-y-4 sm:space-y-6">
+                <CardDescription className="text-sm sm:text-base">
                     {description}
                 </CardDescription>
 
-                <div className="space-y-4">
-                    <h4 className="font-semibold">Key Features:</h4>
+                <div className="space-y-3 sm:space-y-4">
+                    <h4 className="font-semibold text-sm sm:text-base">Key Features:</h4>
                     <ul className="space-y-2">
                         {features.map((feature, index) => (
-                            <li key={index} className="flex items-center">
-                                <ArrowRight className="h-4 w-4 mr-2 text-primary" />
-                                <span>{feature}</span>
+                            <li key={index} className="flex items-start">
+                                <ArrowRight className="h-4 w-4 mr-2 text-primary flex-shrink-0 mt-0.5" />
+                                <span className="text-sm sm:text-base">{feature}</span>
                             </li>
                         ))}
                     </ul>
                 </div>
 
                 <div className="space-y-2">
-                    <h4 className="font-semibold">Technologies Used:</h4>
+                    <h4 className="font-semibold text-sm sm:text-base">Technologies Used:</h4>
                     <div className="flex flex-wrap gap-2">
                         {technologies.map((tech, index) => (
-                            <Badge key={index} variant="secondary">
+                            <Badge key={index} variant="secondary" className="text-xs sm:text-sm">
                                 {tech}
                             </Badge>
                         ))}
                     </div>
                 </div>
-
-                {/* <div className="flex justify-between items-center pt-4 border-t"> */}
-                {/* <div className="text-sm"> */}
-                {/* <span className="font-semibold">Timeline:</span> {timeline} */}
-                {/* </div> */}
-                {/* <div className="text-sm"> */}
-                {/* <span className="font-semibold">Pricing:</span> {pricing} */}
-                {/* </div> */}
-                {/* </div> */}
             </CardContent>
         </Card>
     )

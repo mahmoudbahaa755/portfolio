@@ -3,7 +3,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  images: { 
+  images: {
     unoptimized: true,
     remotePatterns: [
       {
@@ -11,12 +11,6 @@ const nextConfig = {
         hostname: '**',
       },
     ],
-  },
-  experimental: {
-    optimizeCss: true,
-    serverActions: {
-      bodySizeLimit: '2mb',
-    },
   },
 };
 

@@ -104,22 +104,23 @@ const getIcon = (name: any) => {
 
 export default function Technologies() {
   return (
-    <div className="space-y-8">
-      <h1 className="text-3xl font-bold">
+    <div className="space-y-8 px-4 md:px-0">
+      <h1 className="text-2xl md:text-3xl font-bold">
         Technologies & Programming Languages
       </h1>
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
         {technologies.map((tech, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
+            className="transition-all"
           >
-            <Card>
+            <Card className="h-full">
               <CardHeader>
-                <CardTitle>{tech.category}</CardTitle>
+                <CardTitle className="text-lg sm:text-xl">{tech.category}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -127,9 +128,9 @@ export default function Technologies() {
                     <Badge
                       key={itemIndex}
                       variant="secondary"
-                      className="flex items-center gap-1"
+                      className="flex items-center gap-1 text-xs sm:text-sm"
                     >
-                      {getIcon(item)}
+                      <span className="text-base">{getIcon(item)}</span>
                       {item}
                     </Badge>
                   ))}

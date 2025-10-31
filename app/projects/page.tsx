@@ -268,85 +268,83 @@ export default function Projects() {
 
   return (
     <motion.div
-      className="space-y-12"
+      className="space-y-8 md:space-y-12 px-4 md:px-0"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <h1 className="section-heading">My Projects</h1>
+      <h1 className="section-heading text-2xl md:text-3xl">My Projects</h1>
 
-      {/* Add filter input */}
-      <Input
-        type="text"
-        placeholder="Filter projects by title or technology..."
-        value={filter}
-        onChange={(e) => setFilter(e.target.value)}
-        className="max-w-md mx-auto"
-      />
-      <p className="text-center text-sm  font-bold text-gray-500 italic">
-        <span className="text-red-700">Note: </span>I have also developed
-        dashboards, but due to confidentiality, I cannot share them publicly.
-      </p>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="space-y-4">
+        <Input
+          type="text"
+          placeholder="Filter projects by title or technology..."
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          className="w-full md:max-w-md mx-auto"
+        />
+        <p className="text-center text-xs sm:text-sm font-bold text-gray-500 italic px-4">
+          <span className="text-red-700">Note: </span>I have also developed
+          dashboards, but due to confidentiality, I cannot share them publicly.
+        </p>
+      </div>
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {filteredProjects.map((project, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
-            ref={(el) => (cardsRef.current[index] = el as HTMLDivElement)}
+            ref={(el) => {
+              if (el) cardsRef.current[index] = el as HTMLDivElement;
+            }}
           >
-            <Card className="h-full flex flex-col overflow-hidden card-hover">
-              <Image
-                src={project.image || ""}
-                alt={project.title}
-                width={800}
-                height={800}
-                className="w-full h-[300px] "
-              />
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
+            <Card className="h-full flex flex-col overflow-hidden card-hover transition-all">
+              <div className="relative w-full h-[200px] sm:h-[250px] md:h-[300px] overflow-hidden">
+                <Image
+                  src={project.image || ""}
+                  alt={project.title}
+                  width={800}
+                  height={800}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg sm:text-xl">{project.title}</CardTitle>
               </CardHeader>
-              <CardContent className="flex-grow">
-                <CardDescription className="mb-4"></CardDescription>
+              <CardContent className="flex-grow flex flex-col">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
-                    <Badge key={techIndex} variant="secondary">
+                    <Badge key={techIndex} variant="secondary" className="text-xs">
                       {tech}
                     </Badge>
                   ))}
                 </div>
-                <div className="flex space-x-2 mt-auto">
-                  <Button asChild variant="outline" size="sm">
+                <div className="flex flex-col sm:flex-row gap-2 mt-auto">
+                  <Button asChild variant="outline" size="sm" className="w-full sm:w-auto">
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Link
+                      <ExternalLink className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                      <span className="text-xs sm:text-sm">Live Link</span>
                     </a>
                   </Button>
                   {project.githubUrl ? (
-                    <Button asChild variant="outline" size="sm">
+                    <Button asChild variant="outline" size="sm" className="w-full sm:w-auto">
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Github className="mr-2 h-4 w-4" />
-                        GitHub
+                        <Github className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                        <span className="text-xs sm:text-sm">GitHub</span>
                       </a>
                     </Button>
                   ) : (
-                    <div
-                      style={{
-                        cursor: "not-allowed !important",
-                      }}
-                    >
-                      <Button variant="outline" size="sm" disabled>
-                        <LockIcon className="mr-2 h-4 w-4" />
-                        Private Code
-                      </Button>
-                    </div>
+                    <Button variant="outline" size="sm" disabled className="w-full sm:w-auto cursor-not-allowed">
+                      <LockIcon className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                      <span className="text-xs sm:text-sm">Private</span>
+                    </Button>
                   )}
                 </div>
               </CardContent>
