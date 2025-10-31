@@ -83,40 +83,47 @@
   transition: color 0.3s, transform 0.3s;
 }
 
-.card:hover a {
-  color: var(--main-color);
-  animation: textAnimation 1.3s infinite;
-  /* Change to your desired hover color */
-  transform: scale(1.2);
+.card a {
+  text-decoration: none;
+  color: var(--text-color, #333);
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 300ms cubic-bezier(.2,.9,.2,1),
+    color 300ms ease, text-shadow 300ms ease, opacity 300ms ease;
+  will-change: transform, color, text-shadow, opacity;
 }
 
-@keyframes textAnimation {
+.card:hover a {
+  color: var(--main-color);
+  transform: scale(1.06);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.12), 0 0 8px rgba(34,197,94,0.18);
+  animation: textPulse 1.4s ease-in-out infinite;
+}
+
+/* Smooth, subtle pulse using valid transforms */
+@keyframes textPulse {
   0% {
-    transform: scale(1);
-    color: #333;
+    transform: scale(1) translateZ(0);
+    opacity: 1;
   }
-
-  25% {
-    transform: scaley(1.2);
-    color: var(--main-color);
-    /* Change to your desired hover color */
-  }
-
   50% {
-    transform: scaley(1);
-    color: #333;
+    transform: scale(1.08) translateZ(0);
+    opacity: 0.98;
   }
-
-  75% {
-    transform: scalex(1.2);
-    color: var(--main-color);
-
-    /* Change to your desired hover color */
-  }
-
   100% {
-    transform: scalex(1);
-    color: #333;
+    transform: scale(1) translateZ(0);
+    opacity: 1;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card:hover a,
+  .card a {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    text-shadow: none !important;
   }
 }
 
