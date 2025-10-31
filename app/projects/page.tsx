@@ -15,9 +15,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { ChevronDown, Filter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { LockIcon } from "lucide-react";
 import { projects } from "@/utils/config";
+import ProjectCard from "@/components/projects/ProjectCard";
+import FilterBar from "@/components/projects/FilterBar";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,6 +51,7 @@ const itemVariants = {
 export default function Projects() {
   const [filter, setFilter] = useState("");
   const [selectedTechs, setSelectedTechs] = useState<string[]>([]);
+  const [showFilters, setShowFilters] = useState(false);
   const cardsRef = useRef<any>([]);
 
   // gather unique technologies from projects (filter out undefined)
@@ -100,13 +104,20 @@ export default function Projects() {
       );
 
       // Interactive hover animation
-      card.addEventListener("mouseenter", () => {
-        gsap.to(card, { scale: 1.05, duration: 0.3, ease: "power2.out" });
-      });
+      // Only apply hover animations on non-touch / larger screens
+      const applyHover = () => {
+        if (window.matchMedia && window.matchMedia("(min-width: 640px)").matches) {
+          card.addEventListener("mouseenter", () => {
+            gsap.to(card, { scale: 1.05, duration: 0.3, ease: "power2.out" });
+          });
 
-      card.addEventListener("mouseleave", () => {
-        gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.out" });
-      });
+          card.addEventListener("mouseleave", () => {
+            gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.out" });
+          });
+        }
+      };
+
+      applyHover();
     });
   }, []);
 
@@ -119,112 +130,40 @@ export default function Projects() {
     >
       <h1 className="section-heading text-2xl md:text-3xl">My Projects</h1>
 
-      <div className="space-y-4">
-        <Input
-          type="text"
-          placeholder="Filter projects by title or technology..."
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          className="w-full md:max-w-md mx-auto"
-        />
-        {/* Tech filter chips */}
-        <div className="flex flex-wrap gap-2 justify-center md:justify-start pt-3">
-          {allTechs.map((tech) => {
-            const active = selectedTechs.includes(tech);
-            return (
-              <button
-                key={tech}
-                type="button"
-                onClick={() => toggleTech(tech)}
-                className={`px-3 py-1 rounded-full text-sm border transition-colors duration-200 flex items-center gap-2 ${
-                  active
-                    ? "bg-primary text-white border-primary"
-                    : "bg-card text-muted-foreground border-border"
-                }`}
-              >
-                {tech}
-              </button>
-            );
-          })}
-          {selectedTechs.length > 0 && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setSelectedTechs([])}
-              className="ml-2"
-            >
-              Clear
-            </Button>
-          )}
-        </div>
-        <p className="text-center text-xs sm:text-sm font-bold text-gray-500 italic px-4">
-          <span className="text-red-700">Note: </span>I have also developed
-          dashboards, but due to confidentiality, I cannot share them publicly.
-        </p>
-      </div>
+      <FilterBar
+        filter={filter}
+        setFilter={setFilter}
+        allTechs={allTechs}
+        selectedTechs={selectedTechs}
+        toggleTech={toggleTech}
+        clearTechs={() => setSelectedTechs([])}
+        showFilters={showFilters}
+        setShowFilters={setShowFilters}
+      />
+
+      <p className="text-center text-xs sm:text-sm font-bold text-gray-500 italic px-4">
+        <span className="text-red-700">Note: </span>I have also developed
+        dashboards, but due to confidentiality, I cannot share them publicly.
+      </p>
+
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {filteredProjects.map((project, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            ref={(el) => {
-              if (el) cardsRef.current[index] = el as HTMLDivElement;
-            }}
-          >
-            <Card className="h-full flex flex-col overflow-hidden card-hover transition-all">
-              <div className="relative w-full h-[200px] sm:h-[250px] md:h-[300px] overflow-hidden">
-                <Image
-                  src={project.image || ""}
-                  alt={project.title}
-                  width={800}
-                  height={800}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg sm:text-xl">{project.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow flex flex-col">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIndex) => (
-                    <Badge key={techIndex} variant="secondary" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-                <div className="flex flex-col sm:flex-row gap-2 mt-auto">
-                  <Button asChild variant="outline" size="sm" className="w-full sm:w-auto">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                      <span className="text-xs sm:text-sm">Live Link</span>
-                    </a>
-                  </Button>
-                  {project.githubUrl ? (
-                    <Button asChild variant="outline" size="sm" className="w-full sm:w-auto">
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                        <span className="text-xs sm:text-sm">GitHub</span>
-                      </a>
-                    </Button>
-                  ) : (
-                    <Button variant="outline" size="sm" disabled className="w-full sm:w-auto cursor-not-allowed">
-                      <LockIcon className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                      <span className="text-xs sm:text-sm">Private</span>
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
+        {filteredProjects.length === 0 ? (
+          <div className="col-span-full text-center py-12">
+            <p className="text-muted-foreground">No projects match your filters.</p>
+          </div>
+        ) : (
+          filteredProjects.map((project, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              ref={(el) => {
+                if (el) cardsRef.current[index] = el as HTMLDivElement;
+              }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          ))
+        )}
       </div>
     </motion.div>
   );

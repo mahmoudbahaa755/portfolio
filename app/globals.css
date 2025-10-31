@@ -148,3 +148,21 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary) / 0.8);
 }
+
+/* utility: hide native scrollbars but keep scrolling */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* small screens: reduce hover transform intensity globally for cards */
+@media (max-width: 639px) {
+  .card-hover {
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: none !important;
+  }
+}

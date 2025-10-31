@@ -215,7 +215,7 @@ export const projects = [
   {
     id: 2,
     title: "Hyperfinition",
-    technologies: ["TailwindCSS", "TypeScript", "React", "MUI"],
+    technologies: ["TailwindCSS", "TypeScript", "React", "MUI","yup"],
     image: "/images/hyper.png",
     liveUrl: "https://site.hyperfinition.com/",
     githubUrl: "",
