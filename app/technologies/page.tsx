@@ -51,6 +51,7 @@ const technologies = [
     items: [
       "React-Router",
       "React-Query",
+      "Tanstack Table",
       "Axios",
       "GSAP",
       "Framer Motion",
@@ -70,8 +71,8 @@ const technologies = [
     items: ["JavaScript", "TypeScript", "Python", "Java", "C++"],
   },
   {
-    category: "DevOps & Tools",
-    items: ["Git", "Docker", "Jenkins", "AWS", "Husky", "Vercel"],
+    category: "Tools",
+    items: ["Git", "Docker", "Jenkins", "AWS", "Husky", "Vercel","MonoRepo",],
   },
 ];
 
