@@ -53,8 +53,8 @@ export default function Projects() {
   const filteredProjects = projects.filter(
     (project) =>
       project.title.toLowerCase().includes(filter.toLowerCase()) ||
-      project.technologies.some((tech) =>
-        tech.toLowerCase().includes(filter.toLowerCase())
+      project?.technologies?.some((tech) =>
+        tech?.toLowerCase().includes(filter.toLowerCase())
       )
   );
 
