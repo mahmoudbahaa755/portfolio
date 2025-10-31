@@ -13,82 +13,11 @@ import { Briefcase, GraduationCap } from "lucide-react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { experiences } from "@/utils/config";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const experiences = [
-  {
-    title: "Mid Level Frontend Developer",
-    company: "IJD Creatives .",
-    period: "2024,November - Present",
-    description:
-      "Led the frontend development team in creating responsive and accessible web applications using React and Next.js.",
-    skills: ["GSAP", "React", "Next.js", "Management"],
-  },
-  {
-    title: "AI Engineer",
-    company: "Rology",
-    period: "2024,July - 2024,October",
-    description:
-      "Project Based Work (remote), Building an auto impression system using LLM",
-    skills: ["Python", "LLAMA3", "HuggingFace", "LLM"],
-  },
-  {
-    title: "Frontend Developer",
-    company: "FiveM Technologies",
-    period: " 2024, March - 2024,November",
-    description:
-      "Developed and maintained ERP System, focusing on performance optimization and cross-browser compatibility.",
-    skills: [
-      "TypeScript",
-      "NextJS",
-      "TailwindCSS",
-      "AntDesign",
-      "react-hook-form",
-      "Webpack",
-      "TypeScript",
-    ],
-  },
-  {
-    title: "Machine Learning Engineer(internship)",
-    company: "Radical AI",
-    period: "2023,October - 2023,December",
-    description:
-      "Building a chatbot using LLM for making an Interview simulation",
-    skills: ["Python", "API", "HuggingFace", "LLM", "LangChain"],
-  },
-  {
-    title: "Junior Web Developer",
-    company: "Dr Code",
-    period: "2023, October - 2024, March",
-    description:
-      "Assisted in building responsive websites,Dashboard, and implemented UI/UX designs using modern frontend technologies.",
-    skills: [
-      "HTML5",
-      "CSS3",
-      "React",
-      "JavaScript",
-      "Bootstrap",
-      "Formik",
-      "MUI",
-    ],
-  },
-  {
-    title: "Data Scientist",
-    company: "Dr Code",
-    period: "2022, June - 2022,July",
-    description:
-      "Project Based Work (remote), Building an Ai System for auto extraction of data from invoices",
-    skills: [
-      "Python",
-      "Pandas",
-      "Numpy",
-      "TensorFlow",
-      "YOLO",
-      "Image preprocessing",
-    ],
-  },
-];
+
 
 const educations = [
   {
@@ -187,7 +116,7 @@ export default function Experience() {
           Professional Experience
         </h1>
         <div className="space-y-6 md:space-y-8">
-          {experiences.map((exp, index) => (
+          {experiences?.map((exp, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
@@ -205,7 +134,7 @@ export default function Experience() {
                 <CardContent>
                   <p className="mb-4 text-sm sm:text-base">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {exp.skills.map((skill, skillIndex) => (
+                    {exp?.skills?.map((skill, skillIndex) => (
                       <Badge key={skillIndex} variant="secondary" className="text-xs">
                         {skill}
                       </Badge>
