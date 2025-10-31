@@ -47,16 +47,38 @@ const itemVariants = {
 
 export default function Projects() {
   const [filter, setFilter] = useState("");
+  const [selectedTechs, setSelectedTechs] = useState<string[]>([]);
   const cardsRef = useRef<any>([]);
 
-  // Filter projects based on the input
-  const filteredProjects = projects.filter(
-    (project) =>
+  // gather unique technologies from projects (filter out undefined)
+  const allTechs = Array.from(
+    new Set(
+      projects
+        .flatMap((p) => p.technologies ?? [])
+        .filter((t): t is string => typeof t === "string" && t.length > 0)
+    )
+  ).sort((a, b) => a.localeCompare(b));
+
+  const toggleTech = (tech: string) => {
+    setSelectedTechs((prev) =>
+      prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
+    );
+  };
+
+  // Filter projects based on the input and selected technologies
+  const filteredProjects = projects.filter((project) => {
+    const matchesText =
       project.title.toLowerCase().includes(filter.toLowerCase()) ||
-      project?.technologies?.some((tech) =>
-        tech?.toLowerCase().includes(filter.toLowerCase())
-      )
-  );
+      (project.technologies ?? []).some(
+        (tech) => typeof tech === "string" && tech.toLowerCase().includes(filter.toLowerCase())
+      );
+
+    const matchesTech =
+      selectedTechs.length === 0 ||
+      (project.technologies ?? []).some((t) => typeof t === "string" && selectedTechs.includes(t));
+
+    return matchesText && matchesTech;
+  });
 
   useEffect(() => {
     cardsRef.current.forEach((card: any) => {
@@ -105,6 +127,36 @@ export default function Projects() {
           onChange={(e) => setFilter(e.target.value)}
           className="w-full md:max-w-md mx-auto"
         />
+        {/* Tech filter chips */}
+        <div className="flex flex-wrap gap-2 justify-center md:justify-start pt-3">
+          {allTechs.map((tech) => {
+            const active = selectedTechs.includes(tech);
+            return (
+              <button
+                key={tech}
+                type="button"
+                onClick={() => toggleTech(tech)}
+                className={`px-3 py-1 rounded-full text-sm border transition-colors duration-200 flex items-center gap-2 ${
+                  active
+                    ? "bg-primary text-white border-primary"
+                    : "bg-card text-muted-foreground border-border"
+                }`}
+              >
+                {tech}
+              </button>
+            );
+          })}
+          {selectedTechs.length > 0 && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setSelectedTechs([])}
+              className="ml-2"
+            >
+              Clear
+            </Button>
+          )}
+        </div>
         <p className="text-center text-xs sm:text-sm font-bold text-gray-500 italic px-4">
           <span className="text-red-700">Note: </span>I have also developed
           dashboards, but due to confidentiality, I cannot share them publicly.

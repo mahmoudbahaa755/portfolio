@@ -1,4 +1,51 @@
 
+export const technologies = [
+  {
+    category: "Frontend Frameworks",
+    items: ["React", "Angular", "NextJS"],
+  },
+  {
+    category: "CSS Frameworks",
+    items: [
+      "Tailwind CSS",
+      "Bootstrap",
+      "Sass",
+      "Shadcn",
+      "MUI",
+      "AntDesign",
+      "Styled Components",
+    ],
+  },
+  {
+    category: "Libraries",
+    items: [
+      "React-Router",
+      "React-Query",
+      "Tanstack Table",
+      "Axios",
+      "GSAP",
+      "Framer Motion",
+      "Formik",
+      "Yup",
+      "Zod",
+      "Joi",
+      "react-hook-form",
+    ],
+  },
+  {
+    category: "State Management",
+    items: ["Redux", "Redux Toolkit", "Context API", "Zustand"],
+  },
+  {
+    category: "Programming Languages",
+    items: ["JavaScript", "TypeScript", "Python", "Java", "C++"],
+  },
+  {
+    category: "Tools",
+    items: ["Git", "Docker", "Jenkins", "AWS", "Husky", "Vercel","MonoRepo","firebase","pusher"],
+  },
+];
+
 export const experiences = [
   {
     title: "Mid Level Frontend Developer",
@@ -102,7 +149,7 @@ export const projects = [
     technologies: [
       "NextJS",
       "React",
-      "tailwindCSS",
+      "TailwindCSS",
       "TypeScript",
       "Zustand",
     ],
@@ -113,7 +160,7 @@ export const projects = [
   {
     id: 12,
     title: "LensJS",
-    technologies: ["React", "Package",'Backend Logs'],
+    technologies: ["React", "Package",],
     image: "/images/lens.png",
     liveUrl: "https://lensjs.vercel.app/",
     githubUrl: "https://github.com/lensjs/lens",
@@ -160,7 +207,7 @@ export const projects = [
   {
     id: 11,
     title: "Rayed Site",
-    technologies: ["NextJS", "tailwind", "TypeScript",, "html"],
+    technologies: ["NextJS", "TailwindCSS", "TypeScript"],
     image: "/images/rayed.png",
     liveUrl: "https://rayed.net/en",
     githubUrl: "",
@@ -222,7 +269,7 @@ export const projects = [
     technologies: [
       "NextJS",
       "React",
-      "tailwindCSS",
+      "TailwindCSS",
       "TypeScript",
      ,
     ],
@@ -242,7 +289,7 @@ export const projects = [
   {
     id: 1,
     title: "Loan Template",
-    technologies: ["Javascript", "html", "css",],
+    technologies: ["Javascript", "HTML", "css",],
     image: "/images/loanTemplate.png",
     liveUrl: "https:/mahmoudbahaa12.github.io/Loan-Template/",
     githubUrl: "https://github.com/mahmoudbahaa12/Loan-Template",
@@ -250,7 +297,7 @@ export const projects = [
   {
     id: 5,
     title: "Minx Template",
-    technologies: ["Javascript", "html", "css", "bootstrap",],
+    technologies: ["Javascript", "HTML", "css", "bootstrap",],
     image: "/images/minx.png",
     liveUrl: "https://template-3-eight.vercel.app/",
     githubUrl: "https://github.com/mahmoudbahaa755/Minx-Template",
@@ -268,7 +315,7 @@ export const projects = [
   {
     id: 7,
     title: "Web Scrapping",
-    technologies: ["python", "html"],
+    technologies: ["python", "HTML"],
     image: "/images/wuzzef.png",
     liveUrl: "https://github.com/mahmoudbahaa755/web-scrapping-wuzzef-",
     githubUrl: "https://github.com/mahmoudbahaa755/web-scrapping-wuzzef-",

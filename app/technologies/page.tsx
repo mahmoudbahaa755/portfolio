@@ -2,6 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { technologies } from "@/utils/config";
 import { motion } from "framer-motion";
 import {
   FaAngular,
@@ -29,52 +30,6 @@ import {
   SiVercel
 } from "react-icons/si";
 
-const technologies = [
-  {
-    category: "Frontend Frameworks",
-    items: ["React", "Angular", "NextJS"],
-  },
-  {
-    category: "CSS Frameworks",
-    items: [
-      "Tailwind CSS",
-      "Bootstrap",
-      "Sass",
-      "Shadcn",
-      "MUI",
-      "AntDesign",
-      "Styled Components",
-    ],
-  },
-  {
-    category: "Libraries",
-    items: [
-      "React-Router",
-      "React-Query",
-      "Tanstack Table",
-      "Axios",
-      "GSAP",
-      "Framer Motion",
-      "Formik",
-      "Yup",
-      "Zod",
-      "Joi",
-      "react-hook-form",
-    ],
-  },
-  {
-    category: "State Management",
-    items: ["Redux", "Redux Toolkit", "Context API", "Zustand"],
-  },
-  {
-    category: "Programming Languages",
-    items: ["JavaScript", "TypeScript", "Python", "Java", "C++"],
-  },
-  {
-    category: "Tools",
-    items: ["Git", "Docker", "Jenkins", "AWS", "Husky", "Vercel","MonoRepo",],
-  },
-];
 
 const getIcon = (name: any) => {
   const icons = {
