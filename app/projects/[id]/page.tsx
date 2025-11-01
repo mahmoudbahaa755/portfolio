@@ -42,7 +42,7 @@ export default function ProjectDetail() {
     .filter(
       (p) =>
         p.id !== project.id &&
-        p.technologies.some((t) => project.technologies.includes(t))
+        p.technologies.some((t) => project.primaryTech.includes(t))
     )
     .slice(0, 3);
 

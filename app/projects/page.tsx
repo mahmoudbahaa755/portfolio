@@ -1,26 +1,12 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import FilterBar from "@/components/projects/FilterBar";
+import ProjectCard from "@/components/projects/ProjectCard";
+import { projects, Skills } from "@/utils/config";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ExternalLink, Github } from "lucide-react";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Filter } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { LockIcon } from "lucide-react";
-import { projects, Skills } from "@/utils/config";
-import ProjectCard from "@/components/projects/ProjectCard";
-import FilterBar from "@/components/projects/FilterBar";
 
 gsap.registerPlugin(ScrollTrigger);
 
