@@ -120,7 +120,7 @@ export const experiences = [
 ];
 
 export type Skills = 'python'
-|"mui"|"yup"|'zod'
+|"mui"|"yup"|'zod'|'state management'
 |'package'| 'javascript'|'firebase' | 'react-hook-form'|'bootstrap'|'shadcn' | 'typescript' | 'react' | 'nextjs' | 'tailwindcss' | 'Joi' | 'docker' | 'aws' | 'git' | 'html' | 'css' | 'nodejs' | 'AntDesign' | 'mongodb' | 'sql' | 'java' | 'c++' | 'zustand' | 'data science' | 'llm' | 'huggingface' | 'gsap' | 'framer-motion';
 export type Project = {
   id: string;
@@ -336,6 +336,18 @@ export const projects: Project[] = [
     image: "/images/pahu.png",
     liveUrl: "https://pahu-landing-ijd.vercel.app/",
     githubUrl: "",
+    year: "",
+    roles: [],
+    customer: "",
+  }, {
+    id: "global-loading-state-6",
+    title: "global-loading-state (package)",
+    summary: "Landing page with gsap interactions.",
+    technologies: ["package",  "typescript", "react",'state management',],
+    primaryTech: "gsap",
+    image: "/images/global-loading-state.png",
+    liveUrl: "https://www.npmjs.com/package/global-loading-state",
+    githubUrl: "https://github.com/mahmoudbahaa755/global-loading-state",
     year: "",
     roles: [],
     customer: "",
