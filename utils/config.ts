@@ -152,7 +152,7 @@ export const projects: Project[] = [
   {
     id: "she-bake-23",
     title: "She Bake",
-    summary: "E‑commerce landing and store demo built with Next.js and Tailwind.",
+    summary: "E‑commerce landing and store built with Next.js and Tailwind.",
     technologies: ["nextjs", "react", "tailwindcss", "typescript", "zustand"],
     primaryTech: ["nextjs"],
     image: "/images/sheBake.png",
@@ -164,8 +164,8 @@ export const projects: Project[] = [
   },
   {
     id: "lensjs-12",
-    title: "LensJS",
-    summary: "A small open-source package demo.",
+    title: "LensJS (package)",
+    summary: "A small open-source package .",
     technologies: ["react", "package"],
     primaryTech: ["package"],
     image: "/images/lens.png",
@@ -356,7 +356,7 @@ export const projects: Project[] = [
   {
     id: "restaurant-8",
     title: "Restaurant Menu",
-    summary: "Interactive menu demo built with React.",
+    summary: "Interactive menu built with React.",
     technologies: ["javascript", "react", "firebase"],
     primaryTech: ["react"],
     image: "/images/Restaurant.png",
@@ -408,7 +408,7 @@ export const projects: Project[] = [
   {
     id: "shoppinglist-4",
     title: "Shopping List",
-    summary: "Simple React shopping list demo.",
+    summary: "Simple React shopping list .",
     technologies: ["javascript", "react"],
     primaryTech: ["react"],
     image: "/images/shopinglist.png",
