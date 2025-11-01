@@ -22,7 +22,7 @@ export const technologies = [
       "React-Router",
       "React-Query",
       "Tanstack Table",
-      "Axios",
+      "axios",
       "GSAP",
       "Framer Motion",
       "Formik",
