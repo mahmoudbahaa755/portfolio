@@ -327,19 +327,7 @@ export const projects: Project[] = [
     roles: [],
     customer: "",
   },
-  {
-    id: "todo-7",
-    title: "To Do List",
-    summary: "Small demo app using firebase.",
-    technologies: ["javascript", "react", "firebase"],
-    primaryTech: "react",
-    image: "/images/toDoList.png",
-    liveUrl: "https://to-do-list-react-nu-coral.vercel.app/",
-    githubUrl: "https://github.com/mahmoudbahaa755/to-do-list--React-",
-    year: "",
-    roles: [],
-    customer: "",
-  },
+ 
   {
     id: "restaurant-8",
     title: "Restaurant Menu",
