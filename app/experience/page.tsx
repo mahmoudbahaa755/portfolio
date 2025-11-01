@@ -23,7 +23,7 @@ const educations = [
   {
     degree: "DEBI Scholarship in Data Science and Cloud",
     institution: "Tech University",
-    year: "2016",
+    year: "2013 - 2024",
     description: "Specialized in Cloud Computing and Data Science",
   },
   {
@@ -45,19 +45,18 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.05,
+      delayChildren: 0.1,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { opacity: 0 },
   visible: {
-    y: 0,
     opacity: 1,
     transition: {
-      type: "spring",
-      stiffness: 100,
+      duration: 0.4,
     },
   },
 };
@@ -68,33 +67,32 @@ export default function Experience() {
 
   useEffect(() => {
     const animateCards = (cards: any) => {
-      cards.forEach((card: any, index: number) => {
+      cards.forEach((card: any) => {
         gsap.fromTo(
           card,
-          { x: index % 2 === 0 ? -50 : 50, opacity: 0 },
+          { opacity: 0 },
           {
-            x: 0,
             opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
+            duration: 0.4,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: card,
-              start: "top bottom-=100",
-              end: "bottom top",
-              toggleActions: "play none none reverse",
+              start: "top bottom-=50",
+              toggleActions: "play none none none",
             },
           }
         );
+
         card.addEventListener("mouseenter", () => {
           gsap.to(card, {
-            scale: 1.03,
-            boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-            duration: 0.3,
+            scale: 1.02,
+            boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+            duration: 0.2,
           });
         });
 
         card.addEventListener("mouseleave", () => {
-          gsap.to(card, { scale: 1, boxShadow: "none", duration: 0.3 });
+          gsap.to(card, { scale: 1, boxShadow: "0 1px 3px rgba(0,0,0,0.05)", duration: 0.2 });
         });
       });
     };
@@ -105,17 +103,24 @@ export default function Experience() {
 
   return (
     <motion.div
-      className="space-y-12 md:space-y-16 px-4 md:px-0"
+      className="space-y-16 px-4 md:px-0 py-8"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <section>
-        <h1 className="section-heading flex items-center text-2xl md:text-3xl flex-wrap">
-          <Briefcase className="mr-2 h-6 w-6 md:h-8 md:w-8" />
-          Professional Experience
-        </h1>
-        <div className="space-y-6 md:space-y-8">
+      {/* Professional Experience Section */}
+      <section className="space-y-8">
+        <div className="space-y-2">
+          <h1 className="text-3xl md:text-4xl font-bold flex items-center gap-3">
+            <Briefcase className="h-8 w-8 text-primary" />
+            Professional Experience
+          </h1>
+          <p className="text-muted-foreground">
+            My journey through various roles and companies
+          </p>
+        </div>
+
+        <div className="space-y-4 md:space-y-6">
           {experiences?.map((exp, index) => (
             <motion.div
               key={index}
@@ -124,22 +129,32 @@ export default function Experience() {
                 if (el) experienceRef.current[index] = el;
               }}
             >
-              <Card className="card-hover">
+              <Card className="transition-all duration-200 hover:shadow-md border-l-4 border-l-primary">
                 <CardHeader>
-                  <CardTitle className="text-lg sm:text-xl">{exp.title}</CardTitle>
-                  <CardDescription className="text-sm">
-                    {exp.company} | {exp.period}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="mb-4 text-sm sm:text-base">{exp.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {exp?.skills?.map((skill, skillIndex) => (
-                      <Badge key={skillIndex} variant="secondary" className="text-xs">
-                        {skill}
-                      </Badge>
-                    ))}
+                  <div className="flex items-start justify-between flex-wrap gap-2">
+                    <div>
+                      <CardTitle className="text-xl">{exp.title}</CardTitle>
+                      <CardDescription className="text-sm mt-1">
+                        {exp.company} • {exp.period}
+                      </CardDescription>
+                    </div>
                   </div>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
+                  {exp?.skills && exp.skills.length > 0 && (
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {exp.skills.map((skill, skillIndex) => (
+                        <Badge
+                          key={skillIndex}
+                          variant="secondary"
+                          className="text-xs font-medium"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>
@@ -147,12 +162,19 @@ export default function Experience() {
         </div>
       </section>
 
-      <section>
-        <h1 className="section-heading flex items-center text-2xl md:text-3xl flex-wrap">
-          <GraduationCap className="mr-2 h-6 w-6 md:h-8 md:w-8" />
-          Education
-        </h1>
-        <div className="space-y-6 md:space-y-8">
+      {/* Education Section */}
+      <section className="space-y-8">
+        <div className="space-y-2">
+          <h1 className="text-3xl md:text-4xl font-bold flex items-center gap-3">
+            <GraduationCap className="h-8 w-8 text-primary" />
+            Education
+          </h1>
+          <p className="text-muted-foreground">
+            Academic qualifications and certifications
+          </p>
+        </div>
+
+        <div className="space-y-4 md:space-y-6">
           {educations.map((edu, index) => (
             <motion.div
               key={index}
@@ -161,27 +183,19 @@ export default function Experience() {
                 if (el) educationRef.current[index] = el;
               }}
             >
-              <Card className="card-hover">
+              <Card className="transition-all duration-200 hover:shadow-md border-l-4 border-l-blue-500">
                 <CardHeader>
-                  <CardTitle className="text-lg sm:text-xl">{edu.degree}</CardTitle>
-                  <CardDescription className="text-sm">
-                    {edu.institution} | {edu.year}
-                  </CardDescription>
+                  <div className="flex items-start justify-between flex-wrap gap-2">
+                    <div>
+                      <CardTitle className="text-xl">{edu.degree}</CardTitle>
+                      <CardDescription className="text-sm mt-1">
+                        {edu.institution} • {edu.year}
+                      </CardDescription>
+                    </div>
+                  </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4 text-sm sm:text-base">{edu.description}</p>
-                  {/* {edu?.achievements && (
-                    <div className="space-y-2">
-                      <h4 className="font-semibold">Achievements:</h4>
-                      <ul className="list-disc list-inside">
-                        {edu?.achievements.map(
-                          (achievement, achievementIndex) => (
-                            <li key={achievementIndex}>{achievement}</li>
-                          )
-                        )}
-                      </ul>
-                    </div>
-                  )} */}
+                  <p className="text-muted-foreground leading-relaxed">{edu.description}</p>
                 </CardContent>
               </Card>
             </motion.div>

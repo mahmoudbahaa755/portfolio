@@ -137,7 +137,7 @@ export type Project = {
 };
 export const projects: Project[] = [
   {
-    id: "smooth-erp-1",
+    id: "smooth-erp",
     title: "Smooth-ERP",
     summary: "ERP dashboard and admin panel for Smooth-ERP.",
     technologies: ["nextjs", "react", "react-hook-form", "Joi", "tailwindcss", "typescript", "AntDesign"],
@@ -150,7 +150,7 @@ export const projects: Project[] = [
     customer: "Smooth-ERP",
   },
   {
-    id: "she-bake-23",
+    id: "she-bake",
     title: "She Bake",
     summary: "E‑commerce landing and store built with Next.js and Tailwind.",
     technologies: ["nextjs", "react", "tailwindcss", "typescript", "zustand"],
@@ -163,7 +163,7 @@ export const projects: Project[] = [
     customer: "",
   },
   {
-    id: "lensjs-12",
+    id: "lensjs",
     title: "LensJS (package)",
     summary: "A small open-source package .",
     technologies: ["react", "package"],
@@ -176,7 +176,7 @@ export const projects: Project[] = [
     customer: "",
   },
   {
-    id: "Waffer-13",
+    id: "Waffer",
     title: "Waffer",
     summary: "A medical E-commerce Platform",
     technologies: ["nextjs", "typescript", "react",'react-hook-form','tailwindcss','shadcn'],
