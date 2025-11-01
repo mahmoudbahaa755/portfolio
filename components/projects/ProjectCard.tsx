@@ -26,7 +26,7 @@ export default function ProjectCard({ project }: Props) {
           alt={project.title}
           width={800}
           height={800}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-fit"
         />
       </div>
       <CardHeader className="pb-3">
