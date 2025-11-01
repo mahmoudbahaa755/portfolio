@@ -18,7 +18,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Filter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { LockIcon } from "lucide-react";
-import { projects } from "@/utils/config";
+import { projects, Skills } from "@/utils/config";
 import ProjectCard from "@/components/projects/ProjectCard";
 import FilterBar from "@/components/projects/FilterBar";
 
@@ -50,7 +50,7 @@ const itemVariants = {
 
 export default function Projects() {
   const [filter, setFilter] = useState("");
-  const [selectedTechs, setSelectedTechs] = useState<string[]>([]);
+  const [selectedTechs, setSelectedTechs] = useState<Skills[]>([]);
   const [showFilters, setShowFilters] = useState(false);
   const cardsRef = useRef<any>([]);
 
@@ -59,11 +59,11 @@ export default function Projects() {
     new Set(
       projects
         .flatMap((p) => p.technologies ?? [])
-        .filter((t): t is string => typeof t === "string" && t.length > 0)
+        .filter((t): t is Skills => typeof t === "string" && t.length > 0)
     )
   ).sort((a, b) => a.localeCompare(b));
 
-  const toggleTech = (tech: string) => {
+  const toggleTech = (tech: Skills) => {
     setSelectedTechs((prev) =>
       prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
     );

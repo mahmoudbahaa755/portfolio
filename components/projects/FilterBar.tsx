@@ -4,13 +4,14 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Filter } from "lucide-react";
+import { Skills } from "@/utils/config";
 
 type Props = {
   filter: string;
   setFilter: (v: string) => void;
-  allTechs: string[];
-  selectedTechs: string[];
-  toggleTech: (tech: string) => void;
+  allTechs: Skills[];
+  selectedTechs: Skills[];
+  toggleTech: (tech: Skills) => void;
   clearTechs: () => void;
   showFilters: boolean;
   setShowFilters: (v: boolean) => void;
