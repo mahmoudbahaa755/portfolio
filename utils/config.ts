@@ -120,7 +120,7 @@ export const experiences = [
 ];
 
 export type Skills = 'python'
-|"mui"|"yup"
+|"mui"|"yup"|'zod'
 |'package'| 'javascript'|'firebase' | 'react-hook-form'|'bootstrap'|'shadcn' | 'typescript' | 'react' | 'nextjs' | 'tailwindcss' | 'Joi' | 'docker' | 'aws' | 'git' | 'html' | 'css' | 'nodejs' | 'AntDesign' | 'mongodb' | 'sql' | 'java' | 'c++' | 'zustand' | 'data science' | 'llm' | 'huggingface' | 'gsap' | 'framer-motion';
 export type Project = {
   id: string;
@@ -244,6 +244,19 @@ export const projects: Project[] = [
     primaryTech: "Angular",
     image: "/images/aroovia.png",
     liveUrl: "https://aroovia.com/",
+    githubUrl: "",
+    year: "",
+    roles: [],
+    customer: "",
+  },
+   {
+    id: "Learning System-13",
+    title: "Learning System",
+    summary: "Marketing site built with Next.js.",
+    technologies: ["nextjs", "typescript", "react",'react-hook-form','tailwindcss','shadcn','zod'],
+    primaryTech: "nextjs",
+    image: "/images/nab3.png",
+    liveUrl: "https://nabaaliman.com/",
     githubUrl: "",
     year: "",
     roles: [],
