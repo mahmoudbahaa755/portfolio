@@ -141,7 +141,7 @@ export const projects: Project[] = [
     id: "Special Olympics",
     title: "Special Olympics",
     summary: "Special Olympics",
-    technologies: ["nextjs", "react", "monorepo", "react-hook-form", "Joi", "tailwindcss", "typescript", "TurboRepo"],
+    technologies: ["nextjs", "react", "monorepo", "react-hook-form", "zod", "tailwindcss", "typescript", "TurboRepo"],
     primaryTech: ["nextjs",'monorepo'],
     image: "/images/sosa.png",
     liveUrl: "https://specialolympics.sa/",
