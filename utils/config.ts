@@ -121,7 +121,8 @@ export const experiences = [
 
 export type Skills = 'python'
 |"mui"|"yup"|'zod'|'state management'
-|'package'| 'javascript'|'firebase' | 'react-hook-form'|'bootstrap'|'shadcn' | 'typescript' | 'react' | 'nextjs' | 'tailwindcss' | 'Joi' | 'docker' | 'aws' | 'git' | 'html' | 'css' | 'nodejs' | 'AntDesign' | 'mongodb' | 'sql' | 'java' | 'c++' | 'zustand' | 'data science' | 'llm' | 'huggingface' | 'gsap' | 'framer-motion';
+|'monorepo'
+|'package'| 'javascript'|'firebase' | 'react-hook-form'|'TurboRepo'|'bootstrap'|'shadcn' | 'typescript' | 'react' | 'nextjs' | 'tailwindcss' | 'Joi' | 'docker' | 'aws' | 'git' | 'html' | 'css' | 'nodejs' | 'AntDesign' | 'mongodb' | 'sql' | 'java' | 'c++' | 'zustand' | 'data science' | 'llm' | 'huggingface' | 'gsap' | 'framer-motion';
 export type Project = {
   id: string;
   title: string;
@@ -137,6 +138,18 @@ export type Project = {
 };
 export const projects: Project[] = [
   {
+    id: "Special Olympics",
+    title: "Special Olympics",
+    summary: "Special Olympics",
+    technologies: ["nextjs", "react", "monorepo", "react-hook-form", "Joi", "tailwindcss", "typescript", "TurboRepo"],
+    primaryTech: ["nextjs",'monorepo'],
+    image: "/images/sosa.png",
+    liveUrl: "https://specialolympics.sa/",
+    githubUrl: "",
+    year: "2024",
+    roles: ["Frontend", "UI/UX",'Team Lead'],
+    customer: "IJD Creatives",
+  }, {
     id: "smooth-erp",
     title: "Smooth-ERP",
     summary: "ERP dashboard and admin panel for Smooth-ERP.",
@@ -325,6 +338,19 @@ export const projects: Project[] = [
     year: "",
     roles: [],
     customer: "task",
+  },
+  {
+    id: "Sailentra-11",
+    title: "Sailentra Site",
+    summary: "Multi-language site built with Next.js.",
+    technologies: ["nextjs", "tailwindcss", "typescript"],
+    primaryTech: ["nextjs"],
+    image: "/images/sailentra.png",
+    liveUrl: "https://sailentra.vercel.app/",
+    githubUrl: "",
+    year: "",
+    roles: [],
+    customer: "",
   },
   {
     id: "rayed-11",
