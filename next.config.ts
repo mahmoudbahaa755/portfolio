@@ -1,7 +1,9 @@
-const nextConfig = {
+import { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
-    format:['image/avif', 'image/webp'],
+    formats:['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
