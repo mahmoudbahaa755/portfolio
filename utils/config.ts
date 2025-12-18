@@ -1,7 +1,7 @@
 export const technologies = [
   {
     category: "Frontend Frameworks",
-    items: ["react", "nextjs", "nextjs"],
+    items: ["react", "nextjs", "angular" ],
   },
   {
     category: "CSS Frameworks",
