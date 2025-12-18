@@ -346,7 +346,7 @@ export const projects: Project[] = [
     technologies: ["nextjs", "tailwindcss", "typescript"],
     primaryTech: ["nextjs"],
     image: "/images/sailentra.png",
-    liveUrl: "https://sailentra.vercel.app/",
+    liveUrl: "https://www.sailentra.com/",
     githubUrl: "",
     year: "",
     roles: [],
